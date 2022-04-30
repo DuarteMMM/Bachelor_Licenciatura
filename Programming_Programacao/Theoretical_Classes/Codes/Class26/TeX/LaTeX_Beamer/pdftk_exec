@@ -1,0 +1,1 @@
+pdftk Aula_2019_26.pdf cat 1 6 13 18 23 34 39 output Aula_2018_29s.pdf

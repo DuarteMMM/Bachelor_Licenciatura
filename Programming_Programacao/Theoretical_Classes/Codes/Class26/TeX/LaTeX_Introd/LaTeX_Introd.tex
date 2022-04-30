@@ -1,0 +1,683 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[latin1,utf8]{inputenc}       % Tipos de caracteres
+\usepackage[portuges]{babel}             % Português
+\usepackage[a4paper,portrait]{geometry}  % Tipo de papel
+\usepackage{amsmath}                     % Extensões da American Mathematical Society
+\usepackage{multicol}                    % Para tratar colunas multiplas
+\usepackage{makeidx}                     % Para fazer índices
+\usepackage{color}                       % Para tratamento da cor
+\usepackage{fancyhdr}                    % Para cabeçalhos
+\usepackage{url}                         % Para tratar endereços 'url'
+\usepackage{cite}
+
+%%%% Verificar:
+%\usepackage{ucs}
+%\usepackage{utf8}
+%\usepackage[latin1]{inputenc}
+%\usepackage[applemac]{inputenc}         % Para o Mac
+
+%%%%%%%%%%% Predefinições de LaTeX do Tamanho da Página %%%%%%%%%%
+
+\oddsidemargin = 31pt                    % Margem do lado esquerdo: 31pt
+\topmargin = 20pt                        % Margem superior: 20pt  
+\headheight = 12pt                       % Tamanho do 'header': 12pt 
+\headsep = 25pt                          % Espaço entre o 'header' e o texto: 25pt
+\textheight = 592pt                      % Altura do texto: 592pt
+\textwidth = 390pt                       % Largura do texto: 390pt
+\marginparsep = 10pt                     % Espaço entre margem esquerda e o texto: 10pt
+\marginparwidth = 35pt                   % Margem esquerda: 35pt
+\footskip = 30pt                         % Espaço entre o texto e o 'footer': 30pt
+
+\hyphenation{asso-ciada}
+\input epsf
+
+\makeindex
+
+\begin{document}
+
+\title{\bf Algumas Notas Básicas sobre \LaTeX}
+\author{Samuel Eleutério \\ 
+{\small sme@tecnico.ulisboa.pt} \\ 
+Departamento de Física \\ 
+Instituto Superior Técnico \\
+Universidade de Lisboa}
+\date{Dezembro de 2008 (Revisto em 2019)}
+
+\maketitle
+
+\begin{abstract}
+Procura-se com esta pequena nota pôr ao dispor dos
+alunos de Programação do Mestrado em Engenharia Física Tecnológica
+alguns exemplos e informações úteis para a escrita de ficheiros
+em \TeX / \LaTeX.
+\par
+Este texto foi elaborado no sentido de ser uma breve introdução 
+ao \LaTeX\ e procura sê-lo pela análise conjunta do seu código e
+da sua visualização.\,\,Pretende-se assim que ele seja o exemplo do 
+que ele próprio descreve. Por isso, uma parte significativa dos comandos aqui 
+referidos pode ser encontrada no código do texto, 
+aconselha-se, pois, que a sua leitura seja acompanhada pela visualização 
+desse mesmo código fonte.
+\end{abstract}
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+\section*{Introdução}
+
+É objectivo desta pequena nota exemplificar as situações mais usuais
+que se colocam aos utilizadores de \TeX\ e \LaTeX\ na escrita de textos 
+científicos.
+
+Para além das obras originais de Donald Knuth\cite{Knuth:1984}
+sobre \TeX\ e de Leslie Lamport\cite{Lamport:1986} sobre \LaTeX, encontra-se
+disponível na internet uma bibliografia variada de 
+excelente qualidade.
+
+Para uma primeira experiência sobre \TeX\ / \LaTeX, bem como 
+para posteriores consultas, o 
+manual prático escrito por Michael Doob\cite{Doob}
+''{\it A Gentle Introduction to \TeX}'', fornece uma boa
+base de trabalho. Para além dos comandos básicos e de bastantes
+exemplos, apresenta
+uma lista razoavelmente completa dos símbolos matemáticos.
+
+A edição da Wikibooks de \LaTeX\cite{LaTeX:Wiki} é 
+um bom elemento de consulta disponível na internet. Dispõe ainda
+de uma lista actualizada e minimamente documentada 
+dos {\it packages} disponíveis.
+
+O TUG (Indian \TeX\ Users Group), editou um pequeno manual
+de \LaTeX\ {\it LaTeX Tutorials - A Primer}\cite{TUG:2003} e
+um conjunto de slides cobrindo as principais funcionalidades
+do sistema \LaTeX\ intitulado {\it Online Tutorials on LaTeX}\cite{TUG:2000}
+em que é feita uma apresentação
+sintética dos principais comandos.
+
+Uma descrição detalhada das funcionalidades disponíveis no pacote da
+American Mathematical Society (\AmS) pode ser encontrada em 
+''{\it An Introduction to Mathematical Document Production 
+Using \AmS\LaTeX}''\cite{Eveson} da autoria de Simon Eveson
+(Universidade de York).
+
+Para a escrita de textos científicos em Física é referência incontornável
+o pacote '{\it revtex}'\cite{RevTeX}: conjunto de macros para \LaTeX2$\epsilon$
+utilizado para publicação nos jornais da American Physical Society (APS) 
+e do American Institute of Physics (AIP).
+
+Finalmente, outros instrumentos muito cómodos na preparação de
+documentação são as '{\it Reference Cards}' do ambiente em que
+se está a trabalhar. Existem disponíveis na rede '{\it Reference Cards}'
+para \TeX\cite{RefCard:TeX}, \LaTeX\cite{RefCard:LaTeX} e ainda 
+para \AmS\TeX\cite{RefCard:AmSTeX} e 
+para \AmS\LaTeX\cite{RefCard:AmSLaTeX}.
+
+\break 
+
+\section{Modo Texto}\index{Modo Texto}
+
+Nesta secção vão ser apresentadas algumas das principais 
+funcionalidades que se encontram ao dispor do utilizador 
+para a escrita de textos.
+
+\subsection{Classes de \LaTeX}\index{Classes de \LaTeX}
+\index{Classes|see{Classes de \LaTeX}}\index{documentclass|see{Classes de \LaTeX}}
+
+Quando se inicia um ficheiro em \LaTeX\ devemos indicar 
+na primeira linha não comentada a sua '{\bf classe}'
+e o '{\bf tamanho da letra}'\index{Tamanho da Letra} a utilizar. 
+Ao indicar-se a '{\bf classe}',
+está a optar-se por um determinado tipo de formato predefinido; ao indicar-se
+o '{\bf tamanho da letra}' está a definir-se qual o tamanho básico que se
+pretende utilizar. As alterações de tamanho de letra, feitas 
+posteriormente ao longo do texto, devem ter um carácter relativo. 
+Assim, se pretendermos
+reduzir ou aumentar o tamanho global, as alterações far-se-ão de um
+modo coerente. Exemplo: 
+\vskip 2mm\par
+$\backslash$documentclass[12pt]\{article\}
+\vskip 2mm\par
+Na referência\cite{LaTeX:Wiki} podem encontrar-se as classes predefinidas
+em \LaTeX.
+Note-se que qualquer utilizador poderá criar as suas próprias classes 
+a partir das classes existentes.
+
+\subsection{Organização do Texto}\index{Texto!Organização}
+\index{Texto!Blocos}
+
+A organização do texto é feita por blocos que se subdividem
+em parcelas cada vez menores. A parcela maior é a '{\bf part}',
+depois o '{\bf chapter}' até à mais pequena que é o
+'{\bf subparagraph}'. Na marcação de cada um destes blocos
+é feita a atribuição de um título.
+
+Por exemplo, no caso deste texto não se quis que a seccão 'Introdução'
+estivesse numerada como as outras, então foi marcada por uma estrela '*'
+(ver código '.tex').
+
+\subsection{Letras Acentuadas e Indicações Regionais}
+\index{Acentos}\index{Internacionalização}
+
+Um aspecto muito importante a ter em conta é a acentuação dos caracteres.
+Quando o \TeX\ foi desenvolvido não existia nenhum mecanismo de incorporação
+dos acentos devidamente estruturado. As soluções existentes na altura
+eram bastante deficientes e dependiam das máquinas em que se
+trabalhava. Por isso, a única opção razoável para se ter um sistema
+que pudesse funcionar em qualquer computador era restringir os caracteres
+utilizados aos 128 primeiros caracteres do ASCII.
+
+Deste modo, os acentos e outras marcas a inserir deveriam ser feitos
+por comandos próprios. Tal ainda hoje deverá ser feito em \TeX\ e 
+em \LaTeX\ caso não se indiquem os tipos específicos que se estão
+a usar. A título de exemplo apresenta-se a seguir uma tabela com
+as marcas mais usuais (acentos e cedilhas):
+
+\begin{table}[h]
+\label{TabAcentos}
+\caption{\bf Tabelas dos Acentos}
+\begin{center}
+\begin{tabular}{l|c|l}  \hline
+\multicolumn{1}{c}{\bf Marcas} & \multicolumn{1}{|c|}{\bf Comando} & 
+\multicolumn{1}{c}{\bf Exemplo} \\ \hline
+Acento agudo         & $\backslash$'                  & caf\'e        \\ \hline
+Acento agudo num 'i' & $\backslash$'\{$\backslash$i\} & f\'{\i}sica   \\ \hline
+Acento grave         & $\backslash$`                  & \`a           \\ \hline
+Acento circunflexo   & $\backslash\hat{\ }$           & c\^amara      \\ \hline
+Trema                & $\backslash$"                  & Schr\"odinger \\ \hline
+Til                  & $\backslash\tilde{\ }$         & c\~ao         \\ \hline
+Cedilha              & $\backslash$c                  & ca\c{c}a      \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Em \LaTeX, a declaração dos '{\it packages}' 
+''{\bf inputenc}'' e ''{\bf babel}'', 
+no início deste ficheiro, permite-nos a utilização do formato '{\bf utf-8}' 
+com as especificações do português. Outras indicações sobre a utilização 
+do sistema de caracteres 'Unicode' podem ser encontradas na literatura.
+\index{Internacionalização}\index{Internacionalização!Unicode}
+\index{Internacionalização!UTF-8}\index{Internacionalização!Português}
+\index{Packages}\index{Packages!inputenc}\index{Packages!babel}
+
+\subsection{Formatação Básica}
+
+Não é objectivo do sistema \TeX\ reproduzir, em tempo real, a escrita
+de um texto. Por isso, não há necessidade de uma formatação cuidada do texto
+nos ficheiros '{\it .tex}'. No entanto, há algumas regras a ter em conta:
+
+\begin{itemize}
+\item {\bf Comentários:}\index{Comentário} Iniciam-se por '\%'.
+\item {\bf Parágrafo:}\index{Texto!Parágrafo} é um bloco de texto
+que começa e acaba numa, ou mais, linhas em branco. Em alternativa,
+pode iniciar-se um parágrafo com o comando '$\backslash${\bf par}'.
+Um erro muito frequente é a introdução de linhas em branco
+no ficheiro, para melhor visualização do código fonte, ignorando o
+seu papel na formatação do mesmo.
+\item {\bf Indentação:}\index{Texto!Indentação} 
+Por defeito, os parágrafos são 
+indentados (excepto o primeiro). No entanto, ela pode ser 
+inibida com '$\backslash$noindent'.
+\end{itemize}
+
+\subsection{Listas}
+\index{Listas}\index{Listas!itemize}\index{Listas!enumerate}\index{Listas!item}
+
+A enumeração de tópicos, como a que se encontra na sub-secção 
+'{\bf Formatação Básica}', designa-se por '{\bf itemize}'.
+A sua delimitação é feita pelos comandos '$\backslash${\bf begin}\{{\it itemize}\}' e
+$\backslash${\bf end}\{{\it itemize}\}'. A inserção de cada elemento na
+lista é precedida com comando '$\backslash${\bf item}'.
+
+É igualmente possível escolher listagens em que a enumeração
+tem associada um contador. Tais listas são declaradas como
+'{\bf enumerate}' (ver exemplo na sub-secção '{\bf Tabelas}').
+
+\subsection{Tabelas}
+\index{Tabelas}\index{table|see{Tabelas}}\index{tabular}
+
+Na construção de uma tabela são consideradas duas partes:
+\begin{enumerate}
+\item O '{\bf tabular}': que corresponde à tabela propriamente
+dita e que inclui a quadrícula e os elementos nela inseridos;
+\item A '{\bf table}': que corresponde à moldura em que está
+contido o '{\bf tabular}'. É ainda constituída
+por uma legenda, pela indicação da sua localização no texto 
+e por um '{\bf label}' que permiti referi-la.
+\end{enumerate}
+
+Como exemplo, ver o código fonte da tabela
+criada na sub-secção ''{\bf Letras Acentuadas e Indicações Regionais}''.
+Essa tabela contém um '{\bf tabular}' definido pelo comando:
+\vskip 1.5mm\par
+'$\backslash${\bf begin}\{{\it tabular}\}\{l$|$c$|$l\} $\backslash${\bf hline}'
+\vskip 1.5mm\par\noindent
+ao qual se segue uma sequência de caracteres entre chavetas que indica o
+número de colunas e as caracteriza: '{\bf l}'
+significa que a primeira coluna será alignada ao lado esquerdo,
+a '$|$' indica que vai existir uma linha vertical entre a primeira e a 
+segunda coluna. '{\bf c}' indica que os elementos da segunda 
+coluna deverão ser centrados, etc. Finalmente, note-se que
+antes da primeira coluna e depois da última não existem '$|$',
+isso faz com que o '{\bf tabular}' fique aberto à esquerda e
+à direita.
+
+O comando '$\backslash${\bf hline}' indica que irá existir uma linha
+horizontal antes da primeira linha do '{\bf tabular}'.
+
+\subsection{Figuras}\index{Figuras}
+
+Existe uma razoável diversidade de maneiras de inserir
+figuras no texto. Iremos aqui mostrar dois exemplos mas,
+muitos outros podem ser encontrados na literatura.
+Na 'figura 1' é apresentado o gráfico de uma função.
+
+\begin{figure}[h]
+\caption{Simulação da exponencial pelo método de Euler}
+\begin{center}
+\epsfysize=5.0truecm\epsffile{imagens/Figura01.eps}
+\end{center}
+\end{figure}
+
+\par
+%\hbox{\hskip 1.0truecm\vbox to 1.2 cm{\hsize=.60\hsize \hskip 1.1cm
+\hbox{\vbox to 1.2 cm{\hsize=.55\hsize
+Como segundo exemplo é apresentada uma imagem inserida à direita de
+um bloco de texto.}
+\vbox to 1.3 cm{\vskip 0.1truecm
+\noindent\hskip 0.5truecm\epsfysize=1.2truecm\epsffile{imagens/wwwist.eps}}}
+\vskip 1.5mm\par
+No primeiro caso foi definida uma '{\bf figure}' pelo que tem uma
+legenda e um posicionamento; no segundo caso apenas se inseriu
+a figura no interior de uma '{\bf box}'.
+
+A descrição do sistema de '{\bf boxes}' ultrapassa a dimensão
+deste texto. Para a sua compreensão poderá consultar-se a bibliografia.\index{Boxes}
+
+\subsection{Espaçamento}\index{Espaçamento}
+
+O control do espaçamento vertical pode ser feito através de comandos 
+como o '$\backslash${\bf bigskip}' ou o '$\backslash${\bf smallskip}'; no
+que diz respeito ao espaçamento horizontal são apresentados
+alguns exemplos no quadro que se segue:\index{Espaçamento!Vertical}
+
+\begin{center}\index{Espaçamento!Horizontal}
+\begin{tabular}{l|c|l} 
+\multicolumn{3}{c}{\bf Tabelas de Espaçamentos}            \\ \hline
+{\bf Comando}           & {\bf Abreviatura} & {\bf Efeito} \\ \hline
+(sem espaçamento)       &                   & XX           \\ \hline
+$\backslash$thinspace   & $\backslash$,     & X$\,$X       \\ \hline
+$\backslash$medspace    & $\backslash$:     & X$\:$X       \\ \hline
+$\backslash$thickspace  & $\backslash$;     & X$\;$X       \\ \hline
+$\backslash$quad        &                   & X$\quad$X    \\ \hline
+$\backslash$qquad       &                   & X$\qquad$X   \\ \hline
+\end{tabular}
+\end{center}
+
+É igualmente possível dar espaçamentos horizontais e verticais
+com dimensões fixas (cm, mm, pt, in, etc.) para tal usam-se
+os comandos '$\backslash${\bf hskip}' e '$\backslash${\bf vskip}' 
+seguidos dos respectivos valores numéricos 
+(exemplos: '$\backslash${\bf hskip} 1.5mm',
+'$\backslash${\bf vskip} 3pt').
+
+\subsection{Caracteres de Comando}
+\index{Caracteres!Especiais}
+\index{Caracteres!de Comando|see{Especiais}}
+
+Um certo número de caracteres têm, em \TeX, um significado diferente
+do seu valor normal, isto é, servem para introduzir ou declarar 
+instruções. Por isso, a sua introdução, em texto, tem de ser 
+indicada de um modo especial.
+
+\begin{table}[h]
+\label{TabSpecial}
+\caption{\bf Tabelas de Caracteres Especiais}
+\begin{center}
+\begin{tabular}{c|c|l}  \hline
+\multicolumn{1}{c|}{\bf Caracter} & {\bf Escrita} & 
+\multicolumn{1}{c}{\bf Significado} \\ \hline
+$\backslash$            &  \$$\backslash$backslash\$ & Início de instruções        \\ \hline
+\{                      &  $\backslash$\{            & Abrir agrupamento           \\ \hline
+\}                      &  $\backslash$\}            & Fechar agrupamento          \\ \hline
+\%                      &  $\backslash$\%            & Comentário                  \\ \hline
+\&                      &  $\backslash$\&            & Comando de alinhamento      \\ \hline
+\~{}                    &  $\backslash$\~{}\{\}      & Espaço não separável        \\ \hline
+\$                      &  $\backslash$\$            & Modo matemático             \\ \hline
+\^{}                    &  $\backslash$\^{}\{\}      & Expoente em modo matemático \\ \hline
+\_{}                    &  $\backslash$\_{}\{\}      & Índice em modo matemático   \\ \hline
+\#                      &  $\backslash$\#            & Substituição de símbolos    \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Notas de Fim de Pagina e Notas à Margem}
+\index{Notas}\index{Notas!footnote}\index{Notas!marginpar}
+
+As notas de fim de página\footnote{As notas de fim de
+página são também designadas na literatura por {\it footnotes}.}
+são inseridas directamente no 
+lugar em que a chamada é feita. O comando usado é 
+'$\backslash${\bf footnote}\{...\}', em que o bloco contém o texto
+completo da nota.
+%\index{Notas!Fim de Página}\index{footnote|see{Notas}}
+
+Um outro tipo de nota especialmente útil para destacar 
+\marginpar{{\bf Atenção:} {\small Nota à direita}}
+informações ou para referir alterações no texto
+quando se trabalha em colaboração com outras pessoas 
+é a nota à margem cujo comando é
+'$\backslash${\bf marginpar}\{...\}'. Como no caso anterior,
+dentro das chavetas deverá ser colocado o 
+texto. 
+%\index{Notas!À margem}
+
+É igualmente possível inserir notas em zonas específicas do
+texto, por exemplo, junto de tabelas ou de figuras. Para tal,
+deve recorrer-se ao conceito de 'minipágina' 
+({\it minipage}).
+\index{minipage}\index{Mini-página|see{minipage}}
+
+\subsection{Tamanho dos Caracteres}
+
+Como se disse o tamanho dos caracteres deve ser definido em 
+relação ao tamanho base definido no início, na tabela
+seguinte podem ver-se alguns dos tamanhos definidos:
+
+\begin{table}[h]
+\label{TabSize}
+\caption{\bf Tamanho dos Caracteres}
+\begin{center}
+\begin{tabular}{l|l} \hline
+\multicolumn{1}{c|}{\bf Comando} & \multicolumn{1}{c}{\bf Exemplificação}  \\ \hline
+$\backslash$scriptsize  & {\scriptsize Isto é o tamanho 'scriptsize'}   \\ \hline
+$\backslash$footnotesize  & {\footnotesize Isto é o tamanho 'footnotesize'}   \\ \hline
+$\backslash$small  & {\small Isto é o tamanho 'small'}   \\ \hline
+$\backslash$normalsize  & {\normalsize Isto é o tamanho 'normalsize'}   \\ \hline
+$\backslash$large  & {\large Isto é o tamanho 'large'}   \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\subsection{Índice (Table of Contents)}\index{Índice}\index{Table of Contents}
+
+Para criar um índice (table of contents - TOC) basta
+inserir o comando '$\backslash$tableofcontents' no sítio desejado.
+Do índice farão parte os conteúdos das macros '$\backslash$chapter',
+'$\backslash$section', '$\backslash$subsection', etc.
+\par
+Há, no entanto, que ter em conta que para o índice aparecer há
+necessidade de executar duas vezes a compilação em \LaTeX:
+na primeira vez o ficheiro com índice é criado e na segunda
+vez ele é então integrado no texto.
+
+\subsection{Índice Remissivo}\index{Índice Remissivo}
+
+A instrução para a criação dum índice remissivo, 
+'{\bf $\backslash$makeindex}', é feita no início do ficheiro, antes do
+comando '$\backslash${\bf begin}\{{\it document}\}'.
+\index{makeindex}
+
+As instruções de criação deste índice são feitas pelo comando
+'$\backslash${\bf index}' a que se segue a informação que se
+pretende incluir. Nos casos mais simples da sua aplicação
+é apenas indica a entrada do índice, 
+'$\backslash${\bf index}\{{\it Índice}\}', ou de uma sub-entrada, 
+'$\backslash${\bf index}\{{\it Índice!Sub\_Índice}\}'.
+\index{Index}
+
+Na execução, na {\it shell}, do comando {\bf latex}
+é criado um ficheiro com a extensão '{\bf .idx}' que contém a informação
+para a criação do índice.
+
+Ainda na {\it shell} deve ser executado o
+programa '{\bf makeindex} $<$nome.idx$>$'. Como resultado, 
+são criados dois ficheiros um '{\bf .ilg}' e outro '{\bf .ind}' 
+que contêm o índice do texto. 
+Deve então executar-se novamente o comando {\bf latex} para ter
+a sua correcta integração no texto.\index{Comandos!makeindex}
+
+Ao longo do código deste texto podem ser encontradas várias
+indicações de inclusão no índice.
+
+\break
+
+\section{Modo matemático}\index{Modo Matemático}
+
+Na referência \cite{TUG:2000}, bem como noutra documentação, 
+existem listas mais ou menos completas dos símbolos predefinidos
+e das letras gregas.
+
+O modo matemático é iniciado e terminado por um '\$'.
+Os expoentes são introduzidos por um acento circunflexo: '$\hat{\ }$'
+e os índices pela barra '\_'. No caso de serem constituídos por 
+mais do que um caracter devem ser delimitados por chavetas \{...\}.
+Exemplo:
+
+\begin{multicols}{2}
+\center{\bf Resultado}
+\vskip 2mm
+\par
+$f(x_1) = x_1^2 - 5 x_1 + 6$
+\par
+\center{\bf \LaTeX (ou \TeX)}
+\vskip 2mm
+\$f(x\_1) = x\_1$\hat{\ }$2 - 5 x\_1 + 6\$
+\end{multicols}
+
+Note-se que quando se fala em modo matemático, isso é uma designação
+muito genérica, que inclui toda uma simbologia que
+normalmente é usada nas áreas das ciências e das engenharias.
+
+\subsection{Exemplifição de Expressões Matemáticas}
+
+\subsubsection{Representações de Matrizes}
+\index{Modo Matemático!Matrizes}
+
+\begin{center}
+$\begin{matrix}
+\alpha_{11} & \alpha_{12}\\
+\alpha_{21} & \alpha_{22}
+\end{matrix}$
+\hskip 20mm
+$\begin{bmatrix}
+\alpha_{11} & \alpha_{12}\\
+\alpha_{21} & \alpha_{22}
+\end{bmatrix}$
+\hskip 20mm
+$\begin{vmatrix}
+\alpha_{11} & \alpha_{12}\\
+\alpha_{21} & \alpha_{22}
+\end{vmatrix}$
+\end{center}
+
+\subsubsection{Combinações\cite{TUG:2003}}
+\index{Modo Matemático!Combinações}
+
+\[\left(\begin{array}{c} n \\ \\ r \end{array} \right) = 
+\frac{n!}{r!(n-r)!}\]
+
+\subsubsection{Equações e Fracções}
+\index{Modo Matemático!Equações}\index{Modo Matemático!Fracções}
+
+\begin{equation}
+\begin{split}
+f(x,y) & = {1 \over 6} \times (2\,x^2 + 3\,x\,y + x\,y) \\
+       & = {1 \over 3}\,(x^2 + 2\,x\,y) \\
+       & = {x^2 + 2\,x\,y \over 3}
+\end{split}
+\end{equation}
+
+\subsubsection{Sistemas de Equações}
+\index{Modo Matemático!Sistemas de Equações}
+
+\hskip 10mm$\left\{
+\begin{matrix}
+x_o & = & A\,sen\,(\varphi)           \hfill  \\
+v_o & = & A\,\omega_o\,cos\,(\varphi) \hfill 
+\end{matrix}
+\right .$
+
+\subsubsection{Fracções\cite{TUG:2003}}
+\index{Modo Matemático!Fracções}
+
+\begin{equation}
+\nonumber
+  x = a_0 + \frac{1}{\displaystyle a_1
+          + \frac{1}{\displaystyle a_2
+          + \frac{1}{\displaystyle a_3 + a_4}}}
+\end{equation}
+
+\subsubsection{Somatórios}
+\index{Modo Matemático!Somatórios}
+
+\hskip 10mm
+$f(x) = \sum_{n = - \infty}^{\infty} c_n\,e^{in\pi x/L}$
+\hskip 20mm
+$\displaystyle
+f(x) = \sum_{n = - \infty}^{\infty} c_n\,e^{in\pi x/L}$
+
+$$f(x) = \sum_{n = - \infty}^{\infty} c_n\,e^{in\pi x/L}$$
+
+\subsubsection{Integrais}
+\index{Modo Matemático!Integrais}
+
+\hskip 10mm
+$\int_{-\infty}^{\infty} e^{ax^2} dx = \sqrt{\pi \over a}$
+\hskip 30mm
+$\displaystyle
+\int_{-\infty}^{\infty} e^{ax^2} dx = \sqrt{\pi \over a}$
+
+$$\int_{-\infty}^{\infty} e^{ax^2} dx = \sqrt{\pi \over a}$$
+
+\break
+\section{Como Usar e Instalar}
+
+\subsection{Como utilizar o \TeX\ e o \LaTeX}
+
+Os ficheiros com o código \TeX\ (ou \LaTeX) podem ser
+criados com qualquer editor que não introduza elementos de
+formatação próprios ('emacs', 'gedit', 'NotePad', etc.) e devem
+ter a extensão '{\bf .tex}'. O processamento desses ficheiros é feito 
+pelos programas '{\bf tex}' e '{\bf latex}' seguidos do nome do 
+ficheiro.\index{Editores}\index{Comandos!tex}\index{Comandos!latex}
+
+O resultado do processamento por estes programas é um ficheiro
+'{\bf .dvi}' ({\bf D}e{\bf V}ice {\bf I}ndependent) 
+que contém as localizações de todos os símbolos e caracteres
+a imprimir. Este ficheiro pede ser visualizado por intermédio do programa
+'{\bf xdvi}'. É de notar que não é necessário executá-lo uma segunda
+vez para visualizar as actualizações: logo que o novo ficheiro 
+'{\bf .dvi}' é criado ele faz a sua actualização automática no écran.
+\index{Comandos!xdvi}
+
+Para transformar este ficheiro '{\bf .dvi}' noutros tipos há que
+usar programas que transformam este formato noutros. Os mais 
+frequentes são:
+
+\begin{itemize}
+\item '{\bf dvipdf}': \index{Comandos!dvipdf}
+que o transforma para formato '{\bf .pdf}'.
+Note-se que é possível fazer a passagem directamente de \LaTeX\ 
+para '{\bf .pdf}' com o programa '{\bf pdflatex}'. Os ficheiros
+'{\bf .pdf}' podem ser visualizados com um dos programas: 
+'acrobat reader', 'xpdf', 'evince', etc.
+\item '{\bf dvips}': \index{Comandos!dvips}
+que o transforma para o formato '{\bf .ps}'
+(postscript), utilizado por muitas impressoras. A sua visualização 
+pode ser feitas com o programa '{\bf gv}' ('{\bf ghostview}')
+disponível para 'unix' e para 'Windows'.
+\end{itemize}
+
+\subsection{Como instalar o \TeX\ e o \LaTeX}
+\index{Instalação}
+
+\index{Instalação!Linux}
+As diferentes instalações de unix (linux) têm, nos seus pacotes,
+versões completas de \TeX. No caso de não estarem instaladas, tal
+pode ser feito com os respectivos gestores de pacotes.
+
+\index{Instalação!Microsoft Windows}
+Para a instalação em ambiente Microsoft Windows deverá ser feita 
+a instalação de uma implementação de \TeX\ disponível.
+Para tal poderá ser usado o '{\bf MiKTeX}' (http://miktex.org/).
+A sua instalação é bastante simples, consiste em fazer o download
+dos ficheiros para uma directoria e em seguida correr o programa
+de '{\bf setup}'. Os programas são depois usados numa janela de 'DOS'
+dum modo idêntico ao descrito no ponto anterior.
+
+Note-se que existem ambientes mais ou menos agradáveis em que
+se pode trabalhar em \LaTeX\ (LyX, kile, etc.). Deixa-se ao critério de cada um fazer
+as suas opções pessoais, no entanto, é altamente recomendado que
+independentemente da escolha que se faça, o utilizador tenha
+alguma experiência de trabalho em modo texto.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\printindex
+
+\begin{thebibliography}{99}
+
+\bibitem {Knuth:1984}
+Donald E. Knuth. {\it The TeXbook}.
+Addison-Wesley, Reading, Massachusetts: 1984. ISBN 0-201-13448-9.
+
+\bibitem {Lamport:1986}
+Leslie Lamport. {\it LaTeX: A Document Preparation System}. 
+Addison-Wesley, Reading, Massachusetts: 2nd. ed., 1994. ISBN 0-201-52983-1.
+
+\bibitem {Doob}
+Michael Doob. {\it A Gentle Introduction to \TeX\ - A Manual for Self-study}.
+Department of Mathematics. The University of Manitoba. Winnipeg. Manitoba.
+Canada R3T 2N2.
+\par [http://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=
+Doob\%2C Michael]
+
+\bibitem {LaTeX:Wiki}
+{\it LaTeX} by Wikibooks contributors.
+\par [http://en.wikibooks.org/wiki/LaTeX]
+
+\bibitem {TUG:2003}
+TUG - Indian TeX Users Group.
+{\it LaTeX Tutorials - A Primer}. Editor: E. Krishnan.
+\par [http://www-h.eng.cam.ac.uk/help/tpl/textprocessing/ltxprimer-1.0.pdf]
+
+\bibitem {TUG:2000}
+TUG - Indian TeX Users Group.
+{\it Online Tutorials on LaTeX}.
+\par [http://amath.colorado.edu/documentation/LaTeX/tutorial/]
+
+\bibitem {Eveson}
+Simon Eveson. 
+{\it An Introduction to Mathematical Document Production Using \AmS\LaTeX}.
+Edited by Tony Sudbery.
+\par [http://www-users.york.ac.uk/~spe1/texnotes07.pdf]
+
+\bibitem {RevTeX}
+\par [http://authors.aps.org/revtex4/]
+
+\bibitem {RefCard:TeX}
+Reference Card de TeX.\par
+http://refcards.com/docs/silvermanj/tex/tex-refcard-a4.pdf
+
+\bibitem {RefCard:LaTeX}
+Reference Card de LaTeX.\par
+[http://www.stdout.org/~winston/latex/latexsheet-a4.pdf]
+
+\bibitem {RefCard:AmSTeX}
+Reference Card de AmSTeX.\par
+http://www.digilife.be/quickreferences/QRC/AMSTeX%20Reference%20Card%201.3.pdf
+
+\bibitem {RefCard:AmSLaTeX}
+Reference Card de AmSLaTeX.\par
+http://refcards.com/docs/silvermanj/amslatex/LaTeXRefCard.v2.0.pdf
+
+\end{thebibliography}
+
+\end{document}
+
+-----------> footnotes

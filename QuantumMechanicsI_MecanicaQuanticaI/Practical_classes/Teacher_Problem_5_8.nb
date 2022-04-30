@@ -1,0 +1,111 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3047,        103]
+NotebookOptionsPosition[      2514,         85]
+NotebookOutlinePosition[      2877,        101]
+CellTagsIndexPosition[      2834,         98]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{"j", "=", "1"}], TraditionalForm]],
+ FormatType->
+  "TraditionalForm",ExpressionUUID->"a0844c2c-5417-4179-b42f-bc6ec7ee6498"]], \
+"Title",
+ CellChangeTimes->{{3.844315112405208*^9, 
+  3.84431512180702*^9}},ExpressionUUID->"d46d96cf-c6a3-4dce-a5c2-\
+848fc5b3b90e"],
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  RowBox[{
+   SubscriptBox["J", "n"], " ", "=", " ", 
+   RowBox[{
+    OverscriptBox["n", "\[RightVector]"], "\[CenterDot]", 
+    OverscriptBox["J", "\[RightVector]"]}]}], TraditionalForm]],
+ FormatType->
+  "TraditionalForm",ExpressionUUID->"c914827d-159d-4ba2-bd88-d1bc2e7fa98a"]], \
+"Text",
+ CellChangeTimes->{{3.844315126091604*^9, 3.844315129546091*^9}, {
+  3.844315193998344*^9, 
+  3.844315206851387*^9}},ExpressionUUID->"b3daed56-0337-417f-84a4-\
+844fc5b2e1fb"],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["\[HBar]", 
+   SqrtBox["2"]], 
+  RowBox[{"(", GridBox[{
+     {
+      RowBox[{
+       SqrtBox["2"], 
+       RowBox[{"Cos", "[", "\[Theta]", "]"}]}], 
+      RowBox[{
+       RowBox[{"Exp", "[", 
+        RowBox[{
+         RowBox[{"-", "I"}], " ", "\[Phi]"}], "]"}], 
+       RowBox[{"Sin", "[", "\[Theta]", "]"}]}], "0"},
+     {
+      RowBox[{
+       RowBox[{"Exp", "[", 
+        RowBox[{"I", " ", "\[Phi]"}], "]"}], 
+       RowBox[{"Sin", "[", "\[Theta]", "]"}]}], "0", 
+      RowBox[{
+       RowBox[{"Exp", "[", 
+        RowBox[{
+         RowBox[{"-", "I"}], " ", "\[Phi]"}], "]"}], 
+       RowBox[{"Sin", "[", "\[Theta]", "]"}]}]},
+     {"0", 
+      RowBox[{
+       RowBox[{"Exp", "[", 
+        RowBox[{"I", " ", "\[Phi]"}], "]"}], 
+       RowBox[{"Sin", "[", "\[Theta]", "]"}]}], 
+      RowBox[{
+       RowBox[{"-", 
+        SqrtBox["2"]}], 
+       RowBox[{"Cos", "[", "\[Theta]", "]"}]}]}
+    }], ")"}]}]], "Input",
+ CellChangeTimes->{{3.844315037618581*^9, 3.844315093298175*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"89b9515a-f54c-41e8-a065-47d2f4d8441e"]
+}, Open  ]]
+},
+WindowSize->{960, 1016},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"12.0 for Linux x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 311, 8, 147, "Title",ExpressionUUID->"d46d96cf-c6a3-4dce-a5c2-848fc5b3b90e"],
+Cell[894, 32, 504, 13, 57, "Text",ExpressionUUID->"b3daed56-0337-417f-84a4-844fc5b2e1fb"],
+Cell[1401, 47, 1097, 35, 120, "Input",ExpressionUUID->"89b9515a-f54c-41e8-a065-47d2f4d8441e"]
+}, Open  ]]
+}
+]
+*)
+

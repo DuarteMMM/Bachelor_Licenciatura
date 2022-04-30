@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-PT" xml:lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Fernando Barão, Jorge Vieira, Miguel Orcinha" />
+  <title>teste (recurso) - versão A Física Computacional (MEFT/IST)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {  background-color: #f0e8d4; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "all"} } });
+  </script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title"><p>teste (recurso) - versão A<br />
+Física Computacional (MEFT/IST)</p></h1>
+<p class="subtitle">1º semestre 2020-21</p>
+<p class="author">Fernando Barão, Jorge Vieira, Miguel Orcinha</p>
+</header>
+<h1 class="unnumbered" style="background: #EBE880; color: #382C83;" id="entrega">Teste</h1>
+<ol type="1">
+<li><p>Duração do teste: 2H30 + 30 min de tolerância<br />
+O teste terá início às 8H45 e terminará (incluindo tolerância) às 11H45. Será feita uma única cópia da estrutura de pastas às 11H50 (tolerância adicional de 5 minutos máxima), sendo unicamente o seu conteúdo que será objecto de avaliação.</p></li>
+<li><p>Entrega do teste através do svn.<br />
+</p></li>
+</ol>
+<blockquote>
+<p>Não se esqueçam de fazer <code>commit</code> de todos ficheiros com excepção dos ficheiros <code>*.o</code> e <code>*.exe</code><br />
+Nota: A operação <code>svn status</code> permite identificar os ficheiro ainda não <code>commited</code> ou ainda não sob controlo de svn.<br />
+Após terem submetido o vosso teste verifiquem que este se encontra bem submetido.<br />
+Ficheiros não submetidos não poderão ser avaliados.<br />
+</p>
+</blockquote>
+<ol start="3" type="1">
+<li>Realização remota do teste</li>
+</ol>
+<blockquote>
+<p>Regras que os alunos devem cumprir:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Os alunos inscritos na realização da prova devem escrever no topo do ficheiro ‘teste02_respostas.txt’ já existente no directório <code>grupo/numero/teste02</code>, onde também escreverão respostas às alíneas do teste (quando solicitado), se decidem entregar a prova ou não, através da escrita de uma das seguintes frases:</li>
+<li>Solicito avaliação da minha prova de recurso (número)</li>
+<li>Desisto da avaliação através da prova de recurso (número)</li>
+</ul>
+</blockquote>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> Os alunos que não possuirem esta informação no ficheiro ou não possuam o ficheiro, serão considerados desistentes da prova.</span></code></pre></div>
+<blockquote>
+<ul>
+<li>Devem entrar na seguinte sala zoom: <a href="https://videoconf-colibri.zoom.us/j/87430837429">link</a></li>
+<li>Durante a realização da avaliação individual devem ter ligados a câmara e o microfone e as únicas aplicações que poderão estar abertas são <code>terminais</code>, o <code>browser</code> e o <code>zoom</code>. Está explicitamente interdita a utilização de quaisquer aplicações que promovam trocas de informação entre alunos (facebook, messenger, WhatsApp, Telegram, etc…)</li>
+<li>Ao longo da prova pode ser solicitada partilha do ecrã (desktop) dos alunos</li>
+<li>Os alunos devem redigir uma <strong>declaração de honra</strong> manuscrita, assinando-a e fazendo um pdf que depositarão na área svn. Recordamos que a realização da prova é individual e que quaisquer violações desta norma serão sancionadas com a anulação da prova e respectivo reporte aos orgãos do ist.</li>
+</ul>
+</blockquote>
+<p><strong>Declaração de Honra</strong><br />
+Eu, (nome) __________________________________________________ com o número mecanográfico ___________ no quadro da frequência da Unidade Curricular de Física Computacional do 2º ano do Mestrado de Eng. Física Tecnológica (MEFT) do Instituto Superior Técnico, estou a realizar neste dia 4 de Fevereiro de 2021, a prova de recurso de natureza individual declarando assim, sob compromisso de honra, que esta prova foi realizada somente por mim e utilizando como meios de consulta unicamente os que são permitidos pela disciplina, enunciados em anúncio prévio do fenix e no enunciado da prova.<br />
+</p>
+<p>(localidade onde realizam o teste)_________________, 4 de Fevereiro de 2021<br />
+<br />
+(assinatura) ___________________________________</p>
+<h1 class="unnumbered" style="background: #EBE880; color: #382C83;" id="correccao">Correcção do teste</h1>
+<p>Cada aluno deve verificar que possui no seu directório pessoal (identificado pelo seu número mecanográfico) a estrutura de pastas que se segue:</p>
+<pre><code>teste02/src .......................... [user classes: header e source files]
+       /main ......................... [main program: contém programas principais]
+       /bin .......................... [object files: ficheiros .o e .exe]
+       /lib .......................... [user library: libFC.a]
+       /rootANA ...................... [eventuais macros de análise (caso sejam solicitadas)]
+       Makefile ......................</code></pre>
+<p><br />
+</p>
+<p>Regras básicas do <code>Makefile</code> absolutamente necessárias para a avaliação do teste:</p>
+<ul>
+<li>regra para obtençao do executável do problema 1: <code>make prob1</code></li>
+<li>regra para obtençao do executável do problema 2: <code>make prob2</code></li>
+<li>regra para obtençao do executável do problema 3: <code>make prob3</code></li>
+</ul>
+<p><strong>Quotação</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>problemas</th>
+<th style="text-align: center;">quotação</th>
+<th style="text-align: center;">observações</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<ul>
+<li>No caso dos programas não serem compiláveis e as regras definidas do Makefile não existam ou não funcionem, a avaliação do vosso exercício será muito mais difícil.<br />
+Por isso prefiram entregar sempre algo funcional a mais completo mas sem funcionar.</li>
+<li>Na avaliação dos problemas ter-se-ão em conta os resultados obtidos e a qualidade da implementação (comentários ao código e metodologia).<br />
+</li>
+</ul>
+</blockquote>
+<h1 class="unnumbered" style="background: #EBE880; color: #382C83;" id="enunciado">Enunciado do teste (recurso)</h1>
+<h2 class="unnumbered" style="color: #382C83;" id="prob1">Problema 1 (decaimento radioactivo)</h2>
+<p>Consideremos a cadeia radioactiva de desintegração do Bismuto 210, <span class="math inline">\(~^{210}Bi \; \underset{\beta}{\rightarrow} ~^{210}Po \; \underset{\alpha}{\rightarrow} ~^{206}Pb\)</span><br />
+onde o Bismuto possui um tempo de desintegração <span class="math inline">\(\tau_{Bi} = 7.5 \, dias\)</span> e o Polónio um tempo de desintegração <span class="math inline">\(\tau_{Po} = 200 \, dias\)</span>, sendo o Chumbo um elemento estável.<br />
+As equações correspondentes à cadeia de desintegração são as seguintes: <span class="math display">\[
+\begin{aligned}
+    \frac{dN_{Bi}}{dt} &amp; = - \frac{N_{Bi}}{\tau_{Bi}} \\
+    \frac{dN_{Po}}{dt} &amp; = + \frac{N_{Bi}}{\tau_{Bi}} - \frac{N_{Po}}{\tau_{Po}}     
+\end{aligned}
+\]</span> Pretende-se neste problema resolver o sistema de equações através do método de monte-carlo (e não usando métodos de discretização diferencial), assumindo as seguintes condições iniciais:</p>
+<blockquote>
+<ul>
+<li><span class="math inline">\(N_{Bi}(t=0) = 500\)</span></li>
+<li><span class="math inline">\(N_{Po}(t=0) = 0\)</span></li>
+<li><span class="math inline">\(N_{Pb}(t=0) = 0\)</span></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Elabore um programa em C++ de nome <code>prob1.C</code> onde proceda à resolução do problema sem haver necessidade de utilizar quaisquer classes desenvolvidas na disciplina. Na resolução do problema, deve ainda utilizar o gerador de números aleatórios do ROOT <code>TRandom3</code>.</p>
+</blockquote>
+<p><strong>Questões</strong></p>
+<p>Determine:</p>
+<p><strong>1.a</strong><br />
+o número de isótopos de cada elemento ao longo do tempo, <span class="math inline">\(N_{Bi}(t), N_{Po}(t), N_{Pb}(t)\)</span>, usando para tal o método de monte-carlo (MC).</p>
+<blockquote>
+<p>O programa C++ deve salvar o plot do número de isótopos em função do tempo para os três elementos, no ficheiro <code>prob1a.pdf</code> de acordo com o seguinte código de côres: <code>Bi(kBlue+1), Po(kRed+1), Pb(kGreen+1)</code>.</p>
+</blockquote>
+<p><strong>1.b</strong><br />
+o instante de tempo em que o número de isótopos <span class="math inline">\(Po\)</span> é máximo, justificando, e ainda o número de isótopos no instante de tempo t=180 dias.</p>
+<blockquote>
+<p>Escreva a sua resposta na folha de respostas do teste, <code>teste02_respostas.txt</code>.</p>
+</blockquote>
+<h2 class="unnumbered" style="color: #382C83;" id="prob2">Problema 2 (difusão com marcha aleatória)</h2>
+<p>Quando se deixa cair uma gota de leite numa taça de café, assistimos ao alastramento progressivo do leite em todas as direções. Em termos microscópicos isto resulta das colisões das moléculas do leite com o meio aquoso do café. Trata-se de um problema tipicamente difusivo que podemos tratar através do método estocástico da marcha aleatória (random-walk).</p>
+<blockquote>
+<p>Elabore um programa em C++ de nome <code>prob2.C</code> onde estude e analise o processo difusivo a 1-dimensão (<span class="math inline">\(x\)</span>).<br />
+Considere uma grelha espacial de passo <code>1</code> e dimensão <span class="math inline">\([0, 200]\)</span>. Tem-se portanto, <span class="math inline">\(x=0, 1, 2, \cdots, 200\)</span>.<br />
+No instante inicial (<span class="math inline">\(t=0\)</span>) considere a existência de 400 partículas em <span class="math inline">\(x=100\)</span>. Estude a sua evolução no tempo considerando que estas, uma vez num dado ponto do espaço, podem deslocar-se para o ponto imediatamente à esquerda ou à direita com igual probabilidade (<span class="math inline">\(1/2\)</span>).</p>
+</blockquote>
+<p><strong>Questões</strong></p>
+<p><strong>2.a</strong><br />
+Determine a distribuição espacial das partículas em <span class="math inline">\(t=0\)</span> e <span class="math inline">\(t=500\)</span> unidades de tempo e as trajectórias de 3 partículas quaisquer ao longo do tempo até <span class="math inline">\(t=500\)</span>.</p>
+<blockquote>
+<p>O programa C++ deve: - salvar o plot das duas distribuições espaciais sobrepostas no mesmo gráfico, no ficheiro <code>prob2a1.pdf</code> de acordo com o seguinte código de côres: <code>t=0(kBlue+1), t=500(kRed+1)</code>. - salvar o plot das três trajectórias, no ficheiro <code>prob2a2.pdf</code> com três côres diferentes.</p>
+</blockquote>
+<p><strong>2.b</strong><br />
+Determine quanto tempo demoraria o leite a espalhar-se numa chávena de raio <span class="math inline">\(50\)</span>? Justifique.</p>
+<blockquote>
+<p>Escreva a sua resposta na folha de respostas do teste, <code>teste02_respostas.txt</code> e junte plots se entender no ficheiro <code>prob2b.pdf</code>.</p>
+</blockquote>
+<h2 class="unnumbered" style="color: #382C83;" id="prob3">Problema 3 (difusão)</h2>
+<h3 id="equação-de-difusão">Equação de Difusão</h3>
+<p>De um ponto de vista microscópico, a difusão de um fluido de partículas através do espaço pode ser descrita através dos movimentos (quase) aleatórios () que resultam das colisões entre as diferentes partículas que compõem o fluido. De um ponto de vista macroscópico este processo pode ser descrito pela seguinte equação de difusão: <span class="math display">\[
+\frac{\partial \rho(\mathbf{r},t) }{\partial t} = D \, \nabla^2 \rho (\mathbf{r},t),
+\]</span> onde:</p>
+<ul>
+<li><span class="math inline">\(D\)</span>, é o coeficiente de difusão (constante)</li>
+<li><span class="math inline">\(\rho(\mathbf{r},t)\)</span>, é a densidade do fluido em cada ponto espacial <span class="math inline">\(\mathbf{r}\)</span> e temporal <span class="math inline">\(t\)</span></li>
+<li><span class="math inline">\(\nabla^2 = \partial^2/\partial x^2 + \partial^2/\partial y^2 + \partial^2/\partial z^2\)</span>, é o operador Laplaciano.</li>
+</ul>
+<p>Assumindo um dado perfil de densidade inicial <span class="math inline">\(\rho(\mathbf{r},t=0)\)</span>, esta equação descreve a evolução da densidade ao longo do tempo. A equação de difusão tem aplicações, por exemplo, em mecânica dos fluidos ou em física dos plasmas no contexto da fusão nuclear.</p>
+<h3 id="resolução-genérica-da-equação-de-difusão">Resolução genérica da equação de Difusão</h3>
+<p>A solução numérica da equação de difusão implica a discretização do espaço e do tempo (grelha espacio-temporal) e consequentemente dos operadores diferenciais. O método apropriado para a sua resolução e que garante estabilidade numérica incondicional, é o chamado método de Crank-Nicolson, que resulta da determinação da derivada temporal no ponto médio de cada intervalo da grelha numérica. Obtém-se assim a seguinte equação de difusão discretizada, <span class="math display">\[
+\frac{\rho_i^{n+1}-\rho_i^{n}}{\Delta t} = \frac{D}{2}\left[\left(\nabla^2 \rho\right)_i^{n+1}+\left(\nabla^2 \rho\right)_i^{n}\right],
+\]</span></p>
+<p>onde:</p>
+<ul>
+<li><span class="math inline">\(i\)</span> é um ponto genérico associado à grelha espacial</li>
+<li><span class="math inline">\(n\)</span> é o índice associado à discretização temporal.</li>
+</ul>
+<p>A solução desta equação é dada de forma implícita, onde a densidade no instante temporal seguinte (<span class="math inline">\(\rho_i^{n+1}\)</span>) pode ser obtida através da resolução de um sistema de equações lineares.</p>
+<h3 id="resolução-uni-dimensional-a-implementar-no-teste">Resolução uni-dimensional a implementar no teste</h3>
+<p>Neste problema vamos considerar o caso uni-dimensional onde <span class="math inline">\(\nabla^2 = \partial^2 / \partial x^2\)</span>, e onde definimos uma grelha espacial na direcção x dada por <span class="math inline">\(x_i = x_0 + i\Delta x\)</span>, onde:</p>
+<ul>
+<li><span class="math inline">\(\Delta x \equiv x_{i+1}-x_i\)</span>, é a distância entre dois pontos consecutivos na grelha (passo espacial).</li>
+<li><span class="math inline">\(x_0\)</span>, o ponto inicial</li>
+<li><span class="math inline">\(i \geq 0\)</span>, é um número inteiro <span class="math inline">\((i=0,1,2,3,\cdots,N_x - 1)\)</span><br />
+em que <span class="math inline">\(N_x = \text{número de pontos da grelha espacial}\)</span></li>
+</ul>
+<p>Analogamente, a discretização temporal é dada por <span class="math inline">\(t^n = t_0 + n \Delta t\)</span>, onde:</p>
+<ul>
+<li><span class="math inline">\(\Delta t \equiv t^{n+1}-t^{n}\)</span>, é o intervalo de tempo entre dois instantes de tempo consecutivos (passo temporal)</li>
+<li><span class="math inline">\(t_0\)</span>, o instante inicial</li>
+<li><span class="math inline">\(n \geq 0\)</span> é um número inteiro <span class="math inline">\((n=0,1,2,3,\cdots)\)</span></li>
+</ul>
+<p>Nas condições da resolução unidimensional descritas acima, e com a utilização do operador de diferenças finitas centradas para a segunda derivada espacial, podemos re-escrever a equação de difusão a 1 dimensão como: <span class="math display">\[
+\beta \rho_{i+1}^{n+1} + \left(1-2\beta\right) \rho_{i}^{n+1} + \beta \rho_{i-1}^{n+1} = -\beta \rho_{i+1}^{n} + \left(1+2\beta\right) \rho_{i}^{n} - \beta \rho_{i-1}^{n}.
+\]</span> onde <span class="math inline">\(\beta = - D \, \Delta t/\Delta x^2\)</span> e o índice <span class="math inline">\(i \in [1, N_x - 2]\)</span>.</p>
+<p>A equação acima é equivalente à resolução de um sistema matricial <span class="math inline">\(\mathbf{A}\rho^{n+1}=\mathbf{B}^n \rho^n\)</span>, onde:</p>
+<ul>
+<li><span class="math inline">\(\mathbf{A}\)</span> e <span class="math inline">\(\mathbf{B}\)</span> são matrizes tri-diagonais de coeficientes</li>
+<li><span class="math inline">\(\rho^{n+1}\)</span> é o vector densidade calculado em todos os pontos espaciais da grelha, no instante <span class="math inline">\(t^{n+1}\)</span></li>
+<li><span class="math inline">\(\rho^{n}\)</span> é o vector densidade calculado em todos os pontos espaciais da grelha, no instante <span class="math inline">\(t^{n}\)</span></li>
+</ul>
+<h3 id="condições-fronteira-a-implementar-no-teste">Condições fronteira a implementar no teste</h3>
+<p>A equação da difusão é uma equação de primeira ordem no tempo e de segunda ordem no espaço. Assim, a utilização de uma condição fronteira temporal e de duas condições fronteira espaciais definem univocamente a evolução temporal do sistema em análise. Para a concretização numérica, considere o gás contido numa caixa entre <span class="math inline">\(x\in [-L,L]\)</span> e as seguintes condições fronteira:</p>
+<ul>
+<li>densidade inicial, <span class="math inline">\(\rho(x,t=0) = \cos\left[\pi x/(2 L)\right]\)</span></li>
+<li>densidade de fluido nula nos extremos da caixa, <span class="math inline">\(\rho(L,t)=\rho(-L,t)=0\)</span></li>
+</ul>
+<p>Considere a caixa unidimensional com <span class="math inline">\(L=5\)</span>, dividida em 101 pontos espaciais (os pontos extremos correspondem às fronteiras da caixa), com passo temporal <span class="math inline">\(\Delta t = 0.01\)</span> e coeficiente de difusão <span class="math inline">\(D = 1.0\)</span>.</p>
+<blockquote>
+<p>Elabore um programa em C++ cujo nome seja <code>prob3.C</code> onde proceda à resolução deste problema.</p>
+</blockquote>
+<p><strong>Questões</strong></p>
+<p><strong>3.a</strong><br />
+Determine a matriz <span class="math inline">\(\mathbf{A}\)</span> e <span class="math inline">\(\mathbf{B}\)</span>.</p>
+<blockquote>
+<p>O programa <code>prob3.C</code> deve imprimir no ecrã as matrizes de coeficientes <span class="math inline">\(\mathbf{A}\)</span> e <span class="math inline">\(\mathbf{B}\)</span>..</p>
+</blockquote>
+<p><strong>3.b</strong><br />
+Determine a evolução temporal da densidade do fluido (<span class="math inline">\(\rho\)</span>), para <span class="math inline">\(t \in [0, 10]\)</span>, resolvendo a equação de difusão com o método de Crank-Nicolson.</p>
+<blockquote>
+<p>Salve num ficheiro, com o nome <code>prob3b.pdf</code>, uma figura tri-dimensional com a representação da evolução temporal da densidade do fluido (eixo x: espaço, eixo y: tempo, eixo z: <span class="math inline">\(\rho\)</span>).</p>
+</blockquote>
+<p><strong>3.c</strong><br />
+Verifique que <span class="math inline">\(\rho(x=0, t) \propto \exp(-\alpha t)\)</span> e determine <span class="math inline">\(\alpha\)</span>, onde <span class="math inline">\(\alpha\)</span> é a constante de tempo associada ao processo difusivo.</p>
+<blockquote>
+<p>Salve num ficheiro, com o nome <code>prob3c.pdf</code>, uma figura que compare a curva obtida <span class="math inline">\(\propto \exp(\alpha t)\)</span> com o resultado numérico. Imprima para o ecrã o valor de <span class="math inline">\(\alpha\)</span>.</p>
+</blockquote>
+<p><strong>3.d</strong><br />
+Estude a dependência da constante de tempo <span class="math inline">\(\alpha\)</span> com o <span class="math inline">\(L\)</span> da caixa, para os seguintes valores <span class="math inline">\(L = 5, 10, 20\)</span>.</p>
+<blockquote>
+<p>Realize uma interpolação com a ordem que considere apropriada aos pontos obtidos. Salve num ficheiro, com o nome <code>prob3d.pdf</code>, uma figura que sobreponha os valores obtidos para <span class="math inline">\(\alpha(L)\)</span> e a interpolação numérica realizada. Imprima para o ecrã, de forma legível, os valores de <span class="math inline">\(\alpha\)</span> obtidos.</p>
+</blockquote>
+<hr />
+<p>Fim do enunciado do teste de Física Computacional</p>
+</body>
+</html>

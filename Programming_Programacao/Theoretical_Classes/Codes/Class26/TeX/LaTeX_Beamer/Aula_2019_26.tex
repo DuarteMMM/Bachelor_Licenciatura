@@ -1,0 +1,213 @@
+%
+% Compilar com
+%    pdflatex Aula_2019_26.tex 
+%
+
+\documentclass[12pt]{beamer}
+
+\input{Style_2019.tex}
+
+\title[Programação - 26ª Aula (11.12.2019)]{\bf \Large{Programação} \\ 
+\large{Mestrado em Engenharia Física Tecnológica}}
+\author[Mestrado em Engenharia Física Tecnológica]{Samuel M. Eleutério \\ 
+\texttt{sme@tecnico.ulisboa.pt}}
+\date[IST-UTL]{Departamento de Física \\ Instituto Superior Técnico \\ 
+Universidade de Lisboa}
+
+\begin{document}
+
+\begin{frame}
+\center{\bf \large{26ª Aula - Tratamento de Texto Científico
+\vskip 2mm\par \TeX, \LaTeX}}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{{\color{blue}\bf Introdução}}
+\begin{itemize}
+\item<1->{\color{blue}\bf \TeX}\ ({\color{blue}\bf TeX}) é um sistema de 
+escrita de {\color{red}\bf texto científico}. 
+Foi desenvolvido por {\color{blue}\bf Donald Knuth}, então professor
+na Stanford University (Ciência da Computação).
+\item<2->Foram as provas tipográficas da segunda
+edição do seu livro ''{\color{blue}\bf The Art of Computer Programming}'' 
+em 1977 que determinaram a sua decisão de desenvolver o que veio a
+ser o {\color{blue}\bf \TeX}.
+\item<3->Desde então, um número cada vez maior de 
+{\color{blue}\bf textos científicos} passaram a ser 
+{\color{DarkRed}\bf dactilografados} directamente 
+pelos {\color{red}\bf autores}.
+\item<4->Actualmente o {\color{blue}\bf \TeX} é a {\color{red}\bf base de escrita} 
+incontornável de qualquer
+{\color{DarkGreen}\bf texto científico} nas áreas das {\color{DarkRed}\bf Ciências} 
+e das {\color{DarkRed}\bf Engenharias}.
+\item<5->O nome {\color{blue}\bf TeX} vem do grego 
+{\color{red}\boldmath $\tau\acute{\epsilon}\chi\nu\eta$}
+('{\color{DarkRed}\bf arte}', de onde vem a palavra '{\color{DarkRed}\bf técnica}').
+Pronuncia-se como {\color{DarkGreen}\bf /'t${\bm \epsilon}$x/} ou como 
+{\color{DarkGreen}\bf /'t{${\bm \epsilon}$}k/} 
+em que o '{\color{red}\bf X}' se pronuncia como 
+'lo{\color{red}\bf ch}' ou como ('{\color{red}\bf q}ueen').
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{{\color{blue}\bf Introdução - \TeX}}
+\begin{itemize}
+\item<1->O {\color{blue}\bf TeX} é uma linguagem baseada em 
+'{\color{DarkGreen}\bf macros}' e '{\color{DarkGreen}\bf tokens}', 
+sendo muitos desses comandos {\color{DarkRed}\bf desmanchados em tempo real}.
+\item<2->{\color{blue}\bf Knuth} muniu inicialmente o {\color{blue}\bf TeX} 
+de cerca de {\color{red}\bf 600} comandos.
+\item<3->O resultado do {\color{DarkGreen}\bf processamento} de um 
+{\color{DarkRed}\bf ficheiro} {\color{blue}\bf TeX} 
+(extensão '{\color{blue}\bf .tex}')
+é um {\color{DarkRed}\bf ficheiro} '{\color{blue}\bf .dvi}'.
+(''{\color{DarkGreen} {\bf D}e{\bf V}ice {\bf I}ndependent}'') 
+que contém as {\color{DarkRed}\bf localizações} de
+{\color{red}\bf todos} os {\color{DarkGreen}\bf símbolos} e 
+{\color{DarkGreen}\bf caracteres}. 
+\uncover<4->{Em {\color{blue}\bf Unix}, a visualização dum {\color{DarkRed}\bf ficheiro} 
+'{\color{blue}\bf .dvi}' faz-se com o programa '{\color{red}\bf xdvi}'.}
+\item<5->A partir dos {\color{DarkRed}\bf ficheiros} '{\color{blue}\bf .dvi}' 
+pode fazer-se a sua {\color{red}\bf conversão} 
+para formatos específicos: '{\color{red}\bf .pdf}' ({\color{blue}\bf dvipdf}), 
+'{\color{red}\bf .ps}' ({\color{blue}\bf dvips}), etc..
+\item<6->Para {\color{DarkGreen}\bf definir} e {\color{DarkGreen}\bf gerir} 
+as {\color{DarkRed}\bf fontes tipográficas} em {\color{blue}\bf TeX}, 
+Donald Knuth introduziu a linguagem '{\color{red}\bf Metafont}'.
+\item<7->Presentemente existem ao dispor dos utilizadores, para além das
+usuais {\color{blue}\bf famílias de fontes}, fontes cobrindo quase todos
+os tipos de escrita.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{{\color{blue}\bf Introdução}}
+\begin{itemize}
+\item<1->Um dos aspectos {\color{DarkGreen}\bf mais importantes} 
+do {\color{blue}\bf TeX}
+é o seu {\color{blue}\bf sistema de macros} com sua 
+{\color{DarkRed}\bf enorme flexibilidade}.
+\item<2->Graças a esta flexibilidade o {\color{blue}\bf TeX} tornou-se
+a {\color{red}\bf base} para sistemas {\color{DarkRed}\bf mais fáceis} de manipular.
+\item<3->Esses {\color{DarkGreen}\bf sistemas} são basicamente 
+{\color{red}\bf pacotes} 
+com um grande número de {\color{blue}\bf macros} predefinidas que 
+permitem uma interacção {\color{DarkGreen}\bf mais agradável} 
+com o utilizador.
+\item<4->Muitos ambientes de {\color{DarkRed}\bf formatação complexa} 
+encontram-se {\color{DarkRed}\bf definidos} nessas 
+{\color{blue}\bf macros} permitindo gerir, com poucos comandos,
+situações que, em {\color{blue}\bf TeX}, exigiriam um trabalho
+muito mais árduo.
+\item<5->No entanto, {\color{DarkRed}\bf não se pense} 
+que trabalhar directamente em {\color{blue}\bf TeX} é 
+'{\color{DarkGreen}\bf ter de definir tudo}'. 
+Muito antes pelo contrário, quando se deseja 
+uma certa {\color{DarkGreen}\bf liberdade de formatação},
+a opção pela escrita em {\color{blue}\bf TeX} é, muito provavelmente,
+a {\color{DarkRed}\bf escolha mais conveniente}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{{\color{blue}\bf Introdução}}
+\begin{itemize}
+\item<1->O {\color{DarkGreen}\bf sistema de macros} {\color{red}\bf mais importante} 
+construído sobre {\color{blue}\bf \TeX} é o {\color{blue}\bf \LaTeX}.
+Foi desenvolvido no início dos {\color{blue}\bf anos 80s} pelo 
+matemático {\color{blue}\bf Leslie Lamport} 
+(SRI International -- iniciado pela Stanford University).
+\item<2->Por sua vez um grande número de {\color{DarkGreen}\bf blocos adicionais} 
+('{\color{DarkGreen}\bf packages}')
+têm sido acrescentados colocando, ao dispor dos interessados, 
+{\color{DarkRed}\bf funcionalidades} que permitem 
+uma {\color{red}\bf elevada qualidade} do produto final.
+\item<3->Actualmente, quase todas as {\color{DarkGreen}\bf sociedades científicas} 
+e {\color{DarkGreen}\bf editoras} fornecem um {\color{DarkRed}\bf pacote específico} 
+que tem definidas as {\color{blue}\bf macros} das 
+{\color{blue}\bf normas editoriais} de formatação das revistas. % de que são responsáveis.
+\par\uncover<4->{{\bf Exemplos:} {\color{blue}\bf amsmath} pacote de 
+{\color{blue}\bf macros} da {\color{DarkRed}\bf American Mathematical Society} 
+(\AmS) (pacote {\color{blue}\bf \AmS\TeX}) e o {\color{blue}\bf revtex} 
+da {\color{DarkRed}\bf American Physical Society}}.
+\item<5->Existem ainda pacotes com {\color{DarkGreen}\bf funcionalidades específicas} 
+das {\color{DarkRed}\bf línguas}, dos {\color{DarkRed}\bf conjuntos de caracteres} 
+a utilizar, etc..
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{{\color{blue}\bf O Meu Primeiro Texto em \TeX\ e em \LaTeX}
+{\color{black}\bf ('(La)TeX\_Prog\_01.tex')}}
+\ \vskip -7mm\par 
+\uncover<1->{No dois exemplos que se seguem mostra-se como se escreve
+um ficheiro em {\color{blue}\bf TeX} e outro em {\color{blue}\bf LaTeX}.
+Como se pode ver, quer o {\color{DarkRed}\bf texto} quer as 
+{\color{DarkRed}\bf fórmulas}, são escritos exactamente da mesma maneira.}
+\vskip -3mm
+\begin{columns}
+\column{.50\textwidth}
+\begin{center}\uncover<2->{{\color{DarkRed}\bf \TeX}}\end{center}
+\column{.50\textwidth}
+\begin{center}\uncover<2->{{\color{DarkRed}\bf \LaTeX}}\end{center}
+\end{columns}
+\par\vskip 1mm
+\begin{columns}
+\column{.50\textwidth}
+\hskip 4mm$\uncover<3->{\backslash${\color{blue}\bf magnification}=$\backslash${\color{DarkGreen}\bf magstep1}}
+\par\hskip 4mm\uncover<9->{Bom dia a todos!}
+\par\hskip 4mm\uncover<9->{Seja a express$\backslash$${\color{red}\bf \tilde{\ }}${\color{red}\bf \{}a{\color{red}\bf \}}o:}
+\par\hskip 4mm\uncover<10->{$\backslash${\color{blue}\bf par}}
+\par\hskip 4mm
+\uncover<11->{\$$\backslash${\color{blue}\bf int}\_0$\hat{\ }$\{2$\backslash${\color{blue}\bf pi}\}$\backslash${\color{blue}\bf sin}(x) dx = 0\$}
+\par\hskip 4mm\uncover<7->{$\backslash${\color{DarkRed}\bf end}}
+\column{.50\textwidth}
+\hskip 2mm$\uncover<3->{\backslash${\color{blue}\bf documentclass}[{\color{DarkGreen}\bf 12pt}]}\uncover<5->{\{{\bf article}\}}
+\par\hskip 2mm\uncover<7->{$\backslash${\color{DarkRed}\bf begin}\{{\bf document}\}}
+\par\hskip 2mm\uncover<9->{Bom dia a todos!}
+\par\hskip 2mm\uncover<9->{Seja a express$\backslash$${\color{red}\bf \tilde{\ }}${\color{red}\bf \{}a{\color{red}\bf \}}o:}
+\par\hskip 2mm\uncover<10->{$\backslash${\color{blue}\bf par}}
+\par\hskip 2mm
+\uncover<11->{\$$\backslash${\color{blue}\bf int}\_0$\hat{\ }$\{2$\backslash${\color{blue}\bf pi}\}$\backslash${\color{blue}\bf sin}(x) dx = 0\$}
+\par\hskip 2mm\uncover<7->{$\backslash${\color{DarkRed}\bf end}\{{\bf document}\}}
+\end{columns}
+\begin{itemize}
+\item<4->De modos diferentes, ambos se iniciam com o {\color{DarkGreen}\bf tipo de letra}.
+\item<6->No caso do {\color{blue}\bf LaTeX} é indicada a 
+{\color{DarkRed}\bf classe de texto} ({\bf article}).
+\item<8->Em {\color{blue}\bf LaTeX} o texto está entre 
+'$\backslash${\color{blue}\bf begin}' e 
+'$\backslash${\color{blue}\bf end\{document\}}'; em 
+{\color{blue}\bf TeX} termina apenas com o comando
+'{\color{blue}\bf $\backslash$end}'.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{{\color{blue}\bf Exemplos de LaTeX}\par
+{\color{black}\bf 'LaTeX\_Introd.tex', 'LaTeX\_Beamer.tex' e\par
+'apssamp.tex' (exemplo de revtex)}}
+\begin{itemize}
+\item<1->Para finalizar esta pequena {\color{DarkGreen}\bf apresentação} de
+{\color{blue}\bf\TeX}\ irei apresentar {\color{red}\bf três} exemplos da utilização de
+{\color{blue}\bf\LaTeX}.
+\item<2->O primeiro '{\color{DarkGreen}\bf LaTeX\_Introd.tex}'
+é um pequeno texto que explica os {\color{DarkRed}\bf comandos básicos} 
+de {\color{blue}\bf \LaTeX}\ e que os
+{\color{DarkRed}\bf exemplifica} no seu {\color{blue}\bf próprio código}, 
+os resultados que se obtêm.
+\item<3->O segundo é o código dos '{\color{DarkRed}\bf slides}' desta aula.
+Designei esse ficheiro por '{\color{blue}\bf LaTeX\_Beamer.tex}' uma vez
+que a {\color{red}\bf classe} utilizada para os escrever foi '{\color{blue}\bf beamer}'.
+\item<4->A pasta '{\color{DarkRed}\bf IncImages}' contém exemplos de integração de
+  {\color{DarkGreen}\bf imagens} '{\color{blue}\bf .jpg}',
+  '{\color{blue}\bf .png}' e '{\color{blue}\bf .pdf}'.
+  Os respectivos ficheiros devem ser compilados com o comando '{\color{DarkGreen}\bf pdflatex}'.
+\item<5->O terceiro é o código do exemplo que consta no pacote do 
+'{\color{blue}\bf revtex4-1}' da {\color{DarkRed}\bf American Physical Society}.
+\end{itemize}
+\end{frame}
+
+\end{document}

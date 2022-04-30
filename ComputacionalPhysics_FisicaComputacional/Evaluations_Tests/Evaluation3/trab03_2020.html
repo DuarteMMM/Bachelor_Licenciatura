@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-PT" xml:lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Fernando Barão, Jorge Vieira, Miguel Orcinha" />
+  <title>3º Trabalho de Física Computacional (MEFT/IST)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {  background-color: #f0e8d4; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "all"} } });
+  </script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title"><p>3º Trabalho de<br />
+Física Computacional (MEFT/IST)</p></h1>
+<p class="subtitle">1º semestre 2020-21</p>
+<p class="author">Fernando Barão, Jorge Vieira, Miguel Orcinha</p>
+</header>
+<h1 class="unnumbered" style="background: #EBE880; color: #382C83;" id="entrega">Entrega do trabalho</h1>
+<ol type="1">
+<li><p>Entrega do trabalho (realização dos dois problemas) até às 15H de dia 29 de Dezembro (terça-feira) através do svn.<br />
+Não se esqueçam de fazer <code>commit</code> de todos ficheiros com excepção dos ficheiros *.o<br />
+Nota: A operação <code>svn status</code> permite identificar os ficheiro ainda não <code>commited</code> ou ainda não sob controlo de svn.</p></li>
+<li><p>Os alunos poderão optar pela realização de um só problema (qualquer um deles) estando nesse caso a nota máxima do trabalho limitada a 15 valores.<br />
+Neste caso em que haja entrega de um só problema, os alunos devem:</p>
+<ul>
+<li>escrever no ficheiro <code>trab03.txt</code> a ser criado na pasta <code>trab03/</code>, no topo deste:<br />
+“entrega do trab03: realizámos o problema número ___”.</li>
+<li>entregar o trabalho até 24h depois da sua disponibilização, ou seja, até às 15h de dia 28 de Dezembro.<br />
+No caso de atraso de entrega (limite 15h30 do mesmo dia), a nota máxima de avaliação será de 13 valores.</li>
+</ul></li>
+<li><p>Salvaguarda dos trabalhos no svn e entrega do trabalho para além da hora</p>
+<ul>
+<li>às 15H00 de dia 28 de Dezembro e de dia 29 de Dezembro será feita uma cópia (<code>svn copy</code>) de todos os trabalhos dos alunos<br />
+nota: somente os ficheiros comitados no svn por cada grupo são guardados</li>
+<li>às 15H30 de ambos os dias será feita uma nova e última cópia, que só será considerada pelos grupos que o solicitem através de e-mail com o assunto “solicito avaliação do trab03 do grupo [group_ID] revisão 15H30”.<br />
+<em>Neste caso, a nota máxima do trabalho será reduzida para 15 valores (no caso de haver a entrega de dois problemas) ou 13 valores (no caso de haver a entrega de um problema)</em>.</li>
+<li>relembramos que somente os trabalhos submetidos em svn serão considerados</li>
+</ul></li>
+</ol>
+<h1 class="unnumbered" style="background: #EBE880; color: #382C83;" id="correccao">Correcção do exercício</h1>
+<p>Em cada grupo, foi criada a pasta <strong>trab03</strong> que contém as seguintes pastas (não se esqueçam de fazer <code>svn update</code> para os obter!):</p>
+<pre><code>trab03/src .......................... [user classes: header e source files]
+      /main ......................... [main program: contém programas principais]
+      /bin .......................... [object files: ficheiros .o e .exe]
+      /lib .......................... [user library: libFC.a]
+      /rootANA ...................... [analysis macros: eventuais macros de análise (caso sejam solicitadas)]
+      Makefile ...................... </code></pre>
+<p>Este trabalho possui dois problemas:<br />
+1. O programa principal referente ao problema 1 deve possuir o nome <code>main_trab03_1.C</code> e estar localizado em <code>trab03/main</code>.<br />
+2. O programa principal referente ao problema 2 deve possuir o nome <code>main_trab03_2.C</code> e estar localizado em <code>trab03/main</code>.<br />
+3. Todas as classes ou funções necessárias para a solução dos problemas devem estar em <code>trab03/src</code>.</p>
+<p>A correcção deste exercício será feita usando o Makefile de cada grupo localizada em <code>trab03/Makefile</code>. As seguintes acções devem estar definidas:</p>
+<ul>
+<li>regra <code>make trab03</code>:<br />
+deve produzir os ficheiros executáveis <code>trab03/bin/main_trab03_1.exe</code> <code>trab03/bin/main_trab03_2.exe</code></li>
+<li>regra <code>make lib</code>:<br />
+criação da biblioteca <code>trab03/lib/libFC.a</code> que conterá as classes ou códigos utilizados na resolução deste trabalho</li>
+<li>regra <code>make clean</code>:<br />
+apagar todos os ficheiros <code>trab03/bin/*.o</code> e <code>trab03/bin/*.exe</code> e ainda a biblioteca <code>trab03/lib/libFC.a</code></li>
+</ul>
+<p><br />
+</p>
+<p><strong>Quotação</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>problemas</th>
+<th style="text-align: center;">quotação</th>
+<th style="text-align: center;">observações</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>1.a)</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>1.b)</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>1.c)</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>2.a)</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>2.b)</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<ul>
+<li>Caso os programas não sejam compiláveis e as regras definidas do Makefile não existam ou não funcionem, será descontado na quotação de cada problema um máximo de 3 valores.</li>
+<li>Na avaliação dos problemas ter-se-ão em conta os resultados obtidos e a qualidade da implementação (comentários ao código e metodologia).<br />
+</li>
+</ul>
+</blockquote>
+<h1 class="unnumbered" style="background: #EBE880; color: #382C83;" id="enunciado">Enunciado do trabalho 3</h1>
+<h2 class="unnumbered" style="color: #382C83;" id="prob1">Enunciado: problema 1 (integração)</h2>
+<p>Um sistema em equilíbrio termodinâmico independentemente do tipo de partículas que o compôe (neutras, iões, moléculas, átomos) é caracterizado por uma dada temperatura, i.e., as partículas constituintes do sistema possuem uma distribuição de velocidades que obedece à função de Maxwell-Boltzmann (MB), <span class="math display">\[
+\frac{dp}{dv} = f(v) = 4 \, \pi \, \left( \frac{m}{2 \pi k T} \right)^{3/2} \, v^2 \, e^{ -\frac{1}{2} \frac{m v^2}{k T} } 
+\]</span> onde:<br />
+<span class="math inline">\(T\)</span>, temperatura (K)<br />
+<span class="math inline">\(k\)</span>, constante de Boltzman (<span class="math inline">\(1.380649 \,10^{−23} \, J/K\)</span>)<br />
+<span class="math inline">\(m\)</span>, massa da partícula<br />
+<span class="math inline">\(v\)</span>, velocidade da partícula</p>
+<p>A distribuição de Maxwell-Boltzman, que é solução da equação de Boltzmann, descreve a composição das velocidades de um sistema em equilíbrio e corresponde a uma função densidade de probabilidade (<span class="math inline">\(pdf(v)\)</span>). Ou seja, permite responder à questão: qual é a probabilidade, num sistema em equilíbrio, de a velocidade (<span class="math inline">\(v\)</span>) de uma partícula pertencer a um dado intervalo de velocidades (<span class="math inline">\(v \in [v_1, v_2]\)</span>),</p>
+<p><span class="math display">\[
+p(v \in [v_1, v_2]) = \int_{v_1}^{v_2} \frac{dp}{dv} dv 
+\]</span></p>
+<p>Considere um gás de hidrogénio à temperatura de 300 K.<br />
+</p>
+<ol type="a">
+<li>Determine, o valor do integral da distribuição de Maxwell-Boltzman acima para o intervalo total de velocidades,</li>
+</ol>
+<p><span class="math display">\[
+\int_{0}^{\infty} f(v) \, dv 
+\]</span></p>
+<p>com um erro relativo de <span class="math inline">\(10^{-3}\)</span>, usando dois métodos diferentes:<br />
+método de Romberg e método de Monte-carlo (aqui não é obrigatório usar importance sampling).</p>
+<blockquote>
+<p>Resultados esperados:<br />
+Salve num ficheiro <code>trab03_1a.pdf</code> o plot da função de MB<br />
+O programa principal deve imprimir no ecran os seguintes dados:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>método de Romberg: ordem de integração e número de fatias usado, valor da integração, erro relativo</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>método de MC: número de aleatórios gerados, valor da integração, erro relativo</li>
+</ul>
+</blockquote>
+<ol start="2" type="a">
+<li>Determine o valor médio da velocidade <span class="math inline">\(&lt;v&gt;\)</span> com um erro relativo de <span class="math inline">\(10^{-3}\)</span>, usando método MC com importance sampling,</li>
+</ol>
+<p><span class="math display">\[
+&lt;v&gt; = \int_{0}^{\infty} v \, f(v) \, dv 
+\]</span></p>
+<blockquote>
+<p>Resultados esperados:<br />
+Salve num ficheiro <code>trab03_1b.pdf</code> os plots das funções de MB e auxiliar (importance sampling).<br />
+O programa principal deve imprimir no ecran os seguintes dados:<br />
+- número de aleatórios gerados, valor médio de velocidade, erro relativo</p>
+</blockquote>
+<ol start="3" type="a">
+<li>Determine o valor mínimo de velocidade (<span class="math inline">\(v_0\)</span>) tal que <span class="math inline">\(p(v&gt;v_0) = 5\%\)</span>.</li>
+</ol>
+<blockquote>
+<p>Resultados esperados:<br />
+O programa principal deve imprimir no ecran os seguintes dados:<br />
+- o valor de <span class="math inline">\(v_0\)</span> e o erro relativo</p>
+</blockquote>
+<p><br />
+</p>
+<h2 id="enunciado-problema-2-dinâmica-molecular">Enunciado: problema 2 (dinâmica molecular)</h2>
+<p>Pretende-se simular um gás de átomos (partículas) e caracterizá-lo termodinamicamente (temperatura, pressão, …). Este é um problema típico de dinâmica molecular (MD) em que se utilizam técnicas computacionais para fazer o seguimento temporal da posição e da velocidade dos átomos que interagem entre si, através da integração numérica das equações do movimento.<br />
+Assim, estudando as trajectórias microscópicas dos átomos podemos aceder às quantidades macroscópicas do sistema usando valores médios de observáveis como a energia cinética (<span class="math inline">\(&lt;K&gt;\)</span>) e as leis da Física estatística.<br />
+De referir que esta técnica é utilizada intensamente para o estudo de líquidos, superfícies e fissuras de materiais, etc.<br />
+<br />
+Consideremos um conjunto de <span class="math inline">\(N\)</span> átomos no interior de um recipiente quadrado (duas-dimensões), de lado <span class="math inline">\(L\)</span>, a inteagirem entre si. Para a resolução do problema vamos considerar os seguintes ingredientes:</p>
+<blockquote>
+<p><strong>a. Interação entre os átomos: potencial de interação entre átomos</strong><br />
+Para estudarmos o sistema de <span class="math inline">\(N\)</span> átomos é fundamental conhecermos a força que actua cada um dos átomos (<span class="math inline">\(\vec F_i\)</span>). Quando dois átomos se aproximam entre si, estes repelem-se devido à sobreposição das nuvens electrónicas (sobreposição das orbitais). Por outro lado, quando os átomos se afastam estes atraiem-se devido à interação entre dipolos eléctricos (carga positiva e negativa do átomo forma um dipolo) - força de van der Waals.<br />
+O modelo de potencial mais utilizado é o potencial de Lennard-Jones inicialmente proposto para o argon líquido,</p>
+</blockquote>
+<p><span class="math display">\[
+U(r) = 4 \varepsilon \, \left[ \left( \frac{\sigma}{r} \right)^{12} - \left( \frac{\sigma}{r} \right)^{6} \right]
+\]</span></p>
+<blockquote>
+<p>O valor de <span class="math inline">\(\varepsilon\)</span> descreve a magnitude da interação e <span class="math inline">\(\sigma\)</span> a escala em comprimento da interação. De notar que o potencial é altamente repulsivo para distâncias <span class="math inline">\(r&lt;\sigma\)</span> e é nulo para <span class="math inline">\(r=\sigma\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>b. Força entre átomos: lei do movimento</strong><br />
+O modelo clássico da dinâmica molecular consiste em <span class="math inline">\(N\)</span> partículas nas posições <span class="math inline">\(\vec r_i(t)\)</span>, possuindo velocidades <span class="math inline">\(\vec v_i \equiv \dot{\vec r_i(t)}\)</span> e massas <span class="math inline">\(m_i\)</span> com <span class="math inline">\(i=1,2,\cdots,N\)</span>.<br />
+O movimento de cada partícula resulta da equação do movimento, <span class="math display">\[  m \ddot{ \vec r_i(t)} = {\vec F_i}(\vec r_1, \vec r_2, \cdots)\]</span> A força que actua cada partícula é conservativa e resulta das interações com todas as outras partículas existentes.<br />
+A força é calculada a partir do gradiente do potencial em relação aos deslocamentos atómicos, <span class="math display">\[ \vec F_i(\vec r_i) = - \vec \nabla_{\vec r_i} U(\vec r_1, \cdots, \vec r_N) \equiv - \vec \nabla_{i} U(\vec r_1, \cdots, \vec r_N) \]</span> De forma explícita, este potencial é calculado para cada partícula como, <span class="math display">\[ U_i = \sum_{j=1, j \neq i}^{N} U_{ij} \]</span> A forma mais simples é calcular-se directamente a força sobre cada partícula (<span class="math inline">\(\vec F_i\)</span>) a partir das forças entre pares da partículas (<span class="math inline">\(\vec F_{ij}\)</span>), <span class="math display">\[ \vec F_i = \sum_{j=1, j\neq i}^{N} ( -\nabla_i \, U_{ij} )  = \sum_{j=1, j\neq i}^{N} \vec F_{ij} \]</span> e ter em conta que a força entre pares de partículas pode ser obtida derivando o potencial de Lennard-Jones acima.</p>
+</blockquote>
+<blockquote>
+<p><strong>c. Integração numérica</strong><br />
+Para a resolução numérica da equação do movimento de cada partícula, <span class="math display">\[\frac{d^2\vec r_i}{dt^2} = \vec a(\vec r_1, \vec r_2, \cdots) \]</span> devemos utilizar um algoritmo que alie eficácia (rapidez, simplicidade) e precisão. Na dinâmica molecular o algoritmo mais utlizado é o algoritmo de Loop Verlet (1968), que se obtem expandindo <span class="math inline">\(r(t+\delta t)\)</span> e <span class="math inline">\(r(t-\delta t)\)</span> e fazendo a sua soma: <span class="math display">\[ \vec r(t + \delta t) = 2 \vec r(t) - \vec r(t-\delta t) + (\delta t)^2 \, \vec a(t) \]</span> A ter em conta:</p>
+<ul>
+<li>na implementação da expressão anterior há que ter atenção ao facto de que existe uma subtração de dois termos próximos, seguida da adição de um termo que pode ser muito mais pequeno<br />
+</li>
+<li>não é um algoritmo de ignição automática (necessitamos inicialmente do termo <span class="math inline">\(r(t-\delta t)\)</span>)<br />
+</li>
+<li>Irá ser necessário o cálculo da velocidade (por exemplo para a determinação da energia cinética), que se pode obter fazendo, <span class="math display">\[ \vec v(t) = \frac{\vec r(t + \delta t) - \vec r(t-\delta t)}{2 \, \delta t}\]</span></li>
+</ul>
+</blockquote>
+<p>Há outros algoritmos utilizáveis na integração numérica como por exemplo o <em>algoritmo de velocidade de Verlet</em>, ou o <em>algoritmo Leap-Frog</em>.</p>
+<blockquote>
+<p><strong>d. Interação com o recipiente</strong><br />
+O estudo do gás faz-se com recurso a um recipiente com somente duas dimensões espaciais (por exemplo, <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>) e vamos considerar que o recipiente possui dimensões finitas mas obvimente muito maiores que o comprimento de interação das partículas. Do ponto de vista prático no nosso estudo, usaremos um recipiente quadrado de lado <span class="math inline">\(L\)</span>. A interação (colisão elástica) das partículas com as paredes inferior e superior (<span class="math inline">\(y=0, \,L\)</span>) e laterais (<span class="math inline">\(x=0,\, L\)</span>) do recipiente obtém-se a partir da conservação do momento linear e energia cinética; ou seja, a velocidade do átomo mantém-se mas este é reflectido pela parede.<br />
+Vejamos o exemplo do caso da parede lateral (<span class="math inline">\(x=L\)</span>):<br />
+realizada a iteração <span class="math inline">\(n \rightarrow n+1\)</span> e chamando às variáveis iteradas temporárias <span class="math inline">\((\prime)\)</span>, no caso de termos a transposição da parede lateral (<span class="math inline">\(x^{\prime}_{n+1} &gt; x_n\)</span>) nesta iteração, então deveríamos substituir as coordenadas temporárias ou hipotéticas (<span class="math inline">\(\prime\)</span>) iteradas, pelas variáveis iteradas finais tal como se mostra de seguida, <span class="math display">\[ \begin{bmatrix} x^{\prime} \\ y^{\prime} \\ v^{\prime}_x \\ v^{\prime}_y \end{bmatrix}_{n+1} \quad \rightarrow \quad
+\begin{bmatrix} x &amp; = L - (x^{\prime} - L) \\ y &amp; = y^{\prime} \\ v_x &amp; = -v^{\prime}_x \\ v_y &amp; = v^{\prime}_y \end{bmatrix}_{n+1} \]</span><br />
+Um esquema semelhante deve ser implementado nas paredes <span class="math inline">\(\mathbf{x=0}\)</span> e <span class="math inline">\(\mathbf{y=0,L}\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>e. unidades e optimização</strong><br />
+Podemos definir as grandezas físicas em termos de energia, massa e distância <span class="math inline">\(({\varepsilon}, m, \sigma)\)</span>.<br />
+Olhando para a expressão do potencial, vemos claramente que a variável reduzida (adimensional) <span class="math inline">\(\hat{r} = \frac{r}{\sigma}\)</span> se impôe, definindo assim uma escala de distância, <span class="math inline">\(r_c = \sigma\)</span>.<br />
+Ainda a partir da energia potencial podemos ver que esta é proporcional a <span class="math inline">\(\varepsilon\)</span>; podemos assim definir uma escala de energia <span class="math inline">\(\varepsilon_c = \varepsilon\)</span>.<br />
+A escala de tempo pode ser derivada da relação da energia, <span class="math inline">\(\varepsilon \sim m \frac{r_c^2}{t_c^2} \Rightarrow t_c = r_c \sqrt{\frac{m}{\varepsilon}}\)</span>.<br />
+Por último, em relação à velocidade obtemos a seguinte escala, <span class="math inline">\(v_c = \frac{r_c}{t_c} = \sqrt{\frac{\varepsilon}{m}}\)</span></p>
+</blockquote>
+<blockquote>
+<p><strong>f. passo em tempo (<span class="math inline">\(\delta t\)</span>)</strong><br />
+O passo em tempo deverá ser o resultado de um compromisso entre precisão e tempo de cálculo. Em unidades reduzidas, um passo de <span class="math inline">\(\delta \hat{t} \sim 10^{-3}\)</span> é aconselhável.</p>
+</blockquote>
+<p>Na solução deste sistema, trabalharemos assim com as variáveis reduzidas, <span class="math display">\[\hat{t}=\frac{t}{t_c}, \hat{x}=\frac{x}{r_c}, \hat{y}=\frac{y}{r_c}, \hat{\vec v}=\frac{\vec v}{v_c}\]</span> sendo para tal necessário escrever a equação do movimento , a força e a energia potencial, em termos destas variáveis.</p>
+<p><br />
+</p>
+<p><strong>sistema físico que vai ser simulado</strong><br />
+O sistema físico que iremos simular o Argon que é caracterizado por:</p>
+<blockquote>
+<ul>
+<li><span class="math inline">\(\frac{\varepsilon}{k} = 120 \, kelvin\)</span></li>
+<li><span class="math inline">\(\sigma = 34 \, nm\)</span></li>
+<li><span class="math inline">\(m = 6.69 \, 10^{-26} \, Kg\)</span></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>As condições do sistema em unidades reduzidas são as seguintes:</p>
+<ul>
+<li>uma caixa quadrada (2-dimensões) de lado <span class="math inline">\(L = 22\)</span> (adimensional, ou seja corresponde a uma dimensão de <span class="math inline">\(22\sigma\)</span> )</li>
+<li><span class="math inline">\(N = 100\)</span> partículas</li>
+<li>massa das partículas: <span class="math inline">\(m=1\)</span></li>
+<li>posição inicial:<br />
+distribuição de 10 partículas por linha, separadas entre si de <span class="math inline">\(d\)</span>, cujas coordenadas <span class="math inline">\(\hat{x}, \hat{y}\)</span> podem ser definidas de acordo com o seguinte esquema simbólico:</li>
+</ul>
+</blockquote>
+<div class="sourceCode" id="cb2" data-startFrom="1"><pre class="sourceCode numberSource cpp numberLines"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1"></a>  n = <span class="dv">0</span>, <span class="dv">99</span> <span class="co">// N partículas</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>     x[n] = <span class="dv">6</span> + d*(n%<span class="dv">10</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>     y[n] = <span class="dv">6</span> + d*<span class="dt">int</span>(n/<span class="dv">10</span>)     </span></code></pre></div>
+<ul>
+<li>velocidade inicial:<br />
+a velocidade inicial das partículas cuja magnitude é <span class="math inline">\(v_0\)</span> pode ser definida de acordo com,<br />
+<span class="math inline">\(\hat{v}_{x_i} = v_0 \,\cos\theta \quad\quad i=1,2,\cdots,N\)</span><br />
+<span class="math inline">\(\hat{v}_{y_i} = v_0 \, \sin\theta\)</span><br />
+em que <span class="math inline">\(\theta\)</span> é uma variável aleatória definida no domínio <span class="math inline">\(\theta \in [0, 2\pi]\)</span></li>
+</ul>
+<p>O sistema de partículas colocadas nas posições iniciais acima definidas vai interagir havendo portanto um ganho ou perda de energia cinética, dependendo do módulo da velocidade inicial. O sistema evoluirá até atingir o equilíbrio, podendo ter oscilações (estamos a trabalhar com uma estatística reduzida de partículas). A verificação de termos atingido o estado equilíbrio faz-se através do cálculo de observáveis médias do sistema como por exemplo a energia cinética, que deve atingir um patamar constante (mais ou menos).<br />
+</p>
+<p>A temperatura pode ser calculada usando o teorema da equipartição, <span class="math display">\[
+\left. E^{cin} \right|_{tot} = \sum_i E^{cin}_i = \sum_i \frac{1}{2} m v_i^2 = N \, K \, T  \quad \Rightarrow \quad T \propto  \langle E_{cin} \rangle_{sistema}  
+\]</span> A posição de cada partícula no sistema vai variar ao longo do tempo, <span class="math inline">\(\vec r(t)\)</span>, devido à difusão das partículas no sistema.<br />
+A caracterização da difusão no sistema faz-se através do desvio quadrático médio (média para todas as partículas do sistema), <span class="math display">\[
+\langle r^2 \rangle = \langle  \big[ \vec r(t) - \vec r(0) \big]^2 \rangle_{sistema} 
+\]</span></p>
+<h2 class="unnumbered" style="background: #EBE880; color: #382C83;" id="questoes2">Questões</h2>
+<h2 id="a">2.a)</h2>
+<p>Simule o sistema com velocidade inicial nula <span class="math inline">\(v_0 = 0\)</span> e de acordo com as posições iniciais acima definidas em que a distância entre átomos é <span class="math inline">\(d=1\)</span>.<br />
+Acompanhe a evolução do sistema no tempo (pelo menos durante <span class="math inline">\(\hat{t} = 50\)</span>) realizando os seguintes plots:</p>
+<ul>
+<li>energia total do sistema ao longo do tempo e da sua variação relativa (<span class="math inline">\(\frac{E(t)-E(0)}{E(0)}\)</span>)</li>
+<li>temperatura do sistema (energia cinética média)</li>
+<li>desvio quadrático médio</li>
+</ul>
+<p>e avalie quanto tempo este demora a atingir o equilíbrio (tempo em unidade reduzidas).</p>
+<blockquote>
+<p>Resultados esperados:</p>
+<ul>
+<li><p>O programa principal deve imprimir no ecran,</p></li>
+<li><p>a estimativa do tempo que o sistema demorou a atingir o equilíbrio</p></li>
+<li><p>o valor da temperatura (em kelvin)</p></li>
+<li><p>Os plots:</p>
+<ul>
+<li>representação gráfica da localização das partículas do sistema (pontos redondos cheios e a côr azul), salvo no ficheiro <code>trab03_2a_sistema.pdf</code><br />
+</li>
+<li>energia total do sistema ao longo do tempo e da sua variação relativa (<span class="math inline">\(\frac{E(t)-E(0)}{E(0)}\)</span>) a ser salvo no ficheiro <code>trab03_2a_energiatotal.pdf</code><br />
+</li>
+<li>temperatura do sistema (energia cinética média) a ser salvo no ficheiro <code>trab03_2a_temperatura.pdf</code><br />
+</li>
+<li>desvio quadrático médio a ser salvo no ficheiro, <code>trab03_2a_desvioquadratico.pdf</code><br />
+</li>
+</ul></li>
+</ul>
+</blockquote>
+<h2 id="b">2.b)</h2>
+<p>Após o sistema atingir o equilíbrio, determine:</p>
+<ul>
+<li>a distribuição de velocidades das partículas em equilíbrio. Compare com a distribuição esperada de Maxwell-Boltzman.</li>
+</ul>
+<blockquote>
+<p>Resultados esperados:</p>
+<ul>
+<li>Os plot da distribuição de MB sobreposta à distribuição de velocidades obtida salva no ficheiro: <code>trab03_2b_MB.pdf</code><br />
+nota: o plot da distribuição de velocidades da simulação deve ser apresentado como um histograma com linha a cheio de côr kBlue+1 e o plot da MB esperada deve ser representado como uma linha de côr kRed+1</li>
+</ul>
+</blockquote>
+<p>Junte comentários que eventualmente tenha a fazer sobre a solução do problema, no ficheiro <code>trab03.txt</code>.</p>
+<hr />
+<p>Fim do enunciado do 3º trabalho de Física Computacional</p>
+</body>
+</html>

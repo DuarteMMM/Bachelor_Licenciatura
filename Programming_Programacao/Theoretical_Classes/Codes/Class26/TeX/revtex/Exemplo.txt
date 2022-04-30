@@ -1,0 +1,34 @@
+====== Como experimentar rapidamente o 'rev-tex' =======
+
+1. Fazer o 'unzip' do ficheiro 'revtex4-1.zip';
+
+      unzip revtex4-1.zip
+
+2. Ir para a directoria criada 'revtex4-1';
+
+      cd revtex4-1
+
+3. Fazer o 'unzip' do ficheiro 'revtex4-1-tds.zip';
+
+      unzip revtex4-1-tds.zip
+
+4. Ir para a sub-directoria 'doc/latex/revtex/sample/aps';
+
+      cd doc/latex/revtex/sample/aps
+
+5. Copiar para lá os ficheiros da subdirectoria 'tex/latex/revtex/';
+
+      cp ../../../../../tex/latex/revtex/* .
+
+6. Executar o latex:
+
+      latex apssamp.tex
+
+7. Para converter para 'pdf' fazer:
+
+      dvipdf apssamp.dvi
+
+Nota: Poderá faltar o pacote dos "extras" de latex. Se assim for fazer:
+
+      sudo apt-get install texlive-latex-extra
+

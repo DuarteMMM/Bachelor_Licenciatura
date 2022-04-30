@@ -1,0 +1,32 @@
+***** Onde encontrar estes documentos *****
+
+1. LaTeX_Symbols.pdf
+   http://pet.inf.ufsc.br/downloads/latex_symbols.pdf
+
+6. TeX_for_Impatient__book.pdf
+   http://www.tex.ac.uk/tex-archive/info/impatient/book.pdf
+
+2. apsguide4-1.pdf
+   http://authors.aps.org/revtex4/
+
+3. AMSTeX Reference Card 1.3.pdf
+   http://www.digilife.be/quickreferences/indexe.html
+   http://www.digilife.be/quickreferences/QRC/AMSTeX%20Reference%20Card%201.3.pdf
+
+4. Introd_AMSTEX__texnotes07.pdf
+   http://maths.york.ac.uk/www/TexLaTeXInfo
+
+5. AMSLaTeXRefCard.v2.0.pdf
+   http://refcards.com/docs/silvermanj/amslatex/LaTeXRefCard.v2.0.pdf
+
+7. tex-refcard-a4.pdf
+   http://refcards.com/docs/silvermanj/tex/tex-refcard-a4.pdf
+
+8. beameruserguide.pdf
+   http://www.ctan.org/tex-archive/macros/latex/contrib/beamer/doc/beameruserguide.pdf
+
+9. beamer_guide_slides.pdf
+   http://faq.ktug.or.kr/wiki/uploads/beamer_guide.pdf
+
+10. revtex4-1.pdf
+    http://mirrors.ctan.org/macros/latex/contrib/revtex/doc/latex/revtex/source/revtex4-1.pdf

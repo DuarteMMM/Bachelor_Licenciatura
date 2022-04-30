@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-PT" xml:lang="pt-PT">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Fernando Barão, Jorge Vieira, Miguel Orcinha" />
+  <title>1º teste de Física Computacional (MEFT/IST)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "all"} } });
+  </script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title"><p>1º teste de<br />
+Física Computacional (MEFT/IST)</p></h1>
+<p class="subtitle">1º semestre 2020-21</p>
+<p class="author">Fernando Barão, Jorge Vieira, Miguel Orcinha</p>
+</header>
+<h1 class="unnumbered" style="background: #EBE880; color: #382C83;" id="entrega">Teste</h1>
+<ol type="1">
+<li><p>Duração do teste: 3H00<br />
+Será feita uma única cópia da estrutura de pastas às 12H30 e será isso que é objecto de avaliação.</p></li>
+<li><p>Entrega do teste através do svn.<br />
+</p></li>
+</ol>
+<blockquote>
+<p>Não se esqueçam de fazer <code>commit</code> de todos ficheiros com excepção dos ficheiros <code>*.o</code> e <code>*.exe</code><br />
+Nota: A operação <code>svn status</code> permite identificar os ficheiro ainda não <code>commited</code> ou ainda não sob controlo de svn.<br />
+Após terem suubmetido o vosso teste verifiquem que este se encontra bem submetido.<br />
+Ficheiros não submetidos não poderão ser avaliados.<br />
+</p>
+</blockquote>
+<h1 class="unnumbered" style="background: #EBE880; color: #382C83;" id="correccao">Correcção do teste</h1>
+<p>Cada aluno deve verificar que possui no seu directório pessoal (identificado pelo seu número mecanográfico) a estrutura de pastas que se segue:</p>
+<pre><code>teste01/src .......................... [user classes: header e source files]
+       /main ......................... [main program: contém programas principais]
+       /bin .......................... [object files: ficheiros .o e .exe]
+       /lib .......................... [user library: libFC.a]
+       /rootANA ...................... [analysis macros: eventuais macros de análise (caso sejam solicitadas)]
+       Makefile ......................</code></pre>
+<p><br />
+</p>
+<p><strong>Quotação</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>problemas</th>
+<th style="text-align: center;">quotação</th>
+<th style="text-align: center;">observações</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: center;">15</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>1.a)</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td>1.b)</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<ul>
+<li>No caso dos programas não serem compiláveis e as regras definidas do Makefile não existam ou não funcionem, a avaliação do vosso exercício será muito mais difícil.<br />
+Por isso prefiram entregar sempre algo funcional a mais completo mas sem funcionar.</li>
+<li>Na avaliação dos problemas ter-se-ão em conta os resultados obtidos e a qualidade da implementação (comentários ao código e metodologia).<br />
+</li>
+</ul>
+</blockquote>
+<h1 class="unnumbered" style="background: #EBE880; color: #382C83;" id="enunciado">Enunciado do 1º teste</h1>
+<h2 class="unnumbered" style="color: #382C83;" id="prob1">Problema 1 (pêndulo gravítico)</h2>
+<p>O pêndulo gravítico composto por uma massa esférica <span class="math inline">\(m\)</span> de raio <span class="math inline">\(R\)</span> suportada por um fio inextensível de comprimento <span class="math inline">\(\ell\)</span> possui a seguinte equação do movimento, <span class="math display">\[
+\frac{d^2\theta}{dt^2} + \frac{g}{\ell} \sin\theta = 0
+\]</span> onde <span class="math inline">\(\theta\)</span> é o ângulo que o pêndulo faz com a vertical, <span class="math inline">\(\ell=5 \, m\)</span> e <span class="math inline">\(g=9.8 \, m/s^2\)</span>.</p>
+<ol type="a">
+<li><p>O período do pêndulo pode ser derivado usando a equação anterior, como sendo <span class="math display">\[
+T = 4 \, \sqrt{\frac{\ell}{g}} \, \int_0^{\frac{\pi}{2}} \frac{d\alpha}{\sqrt{1-\sin^2 \left( \frac{\theta_0}{2}\right) \, \sin^2\alpha}}
+\]</span> onde <span class="math inline">\(\theta_0\)</span> é o ângulo inicial do pêndulo.</p>
+<p>Usando a integração numérica (qualquer método) realize um programa em C++ na pasta <code>main/</code> cujo nome seja <code>prob1a.C</code>, que realize as seguintes operações:</p>
+<ul>
+<li>Salvar num ficheiro <code>prob1a_periodo.pdf</code> o plot do período do pêndulo em segundos (com uma precisão relativa de <span class="math inline">\(10^{-3}\)</span>), em função do ângulo inicial <span class="math inline">\(\theta_0\)</span>, para <span class="math inline">\(\theta_0 \in [1^{\circ}, 90^{\circ}]\)</span></li>
+<li>Imprima no ecran do computador<br />
+=&gt; a identificação do método utilizado na integração<br />
+=&gt; o valor do período <span class="math inline">\(T\)</span> para os ângulos iniciais (em graus),<br />
+<span class="math inline">\(~~~~~~\)</span> <span class="math inline">\(\theta_0 = 1 + 4^{\circ} n \quad (n=0,1,2,\cdots,22)\)</span></li>
+</ul></li>
+</ol>
+<blockquote>
+<p>Avaliação da alínea:</p>
+<ul>
+<li>regra <code>make prob1a</code> deve produzir o executável <code>prob1a.exe</code> na pasta <code>bin/</code></li>
+</ul>
+</blockquote>
+<ol start="2" type="a">
+<li>Resolva a equação diferencial acima utilizando o método de Runge-Kutta 4a ordem, num programa C++ na pasta <code>main/</code> e cujo nome seja <code>prob1b.C</code>. Assuma como condições iniciais: <span class="math inline">\(\theta(0) = 65^{\circ}\)</span> e velocidade nula, <span class="math inline">\(v(0)=0\)</span>.<br />
+O programa deve obter o movimento do pêndulo durante pelo menos 10 períodos e realizar as seguintes operações:
+<ul>
+<li>Salvar num ficheiro <code>prob1b_diagramafase.pdf</code> o plot do ângulo <span class="math inline">\(\theta\)</span> em função da velocidade angular <span class="math inline">\(\dot{\theta}\)</span>.</li>
+<li>Salvar num ficheiro <code>prob1b_energia.pdf</code> o plot da energia total do pêndulo em função do tempo.</li>
+<li>Salvar num ficheiro <code>prob1b_theta.pdf</code> o plot do ângulo <span class="math inline">\(\theta\)</span> do pêndulo em função do tempo.</li>
+</ul></li>
+</ol>
+<blockquote>
+<p>Avaliação da alínea:</p>
+<ul>
+<li>regra <code>make prob1b</code> deve produzir o executável <code>prob1b.exe</code> na pasta <code>bin/</code></li>
+<li>Nota: No caso de não conseguir implementar o método de Runge-Kutta de 4a ordem, poderá (havendo desconto) substituir por outro método que considere apropriado.</li>
+</ul>
+</blockquote>
+<h2 class="unnumbered" style="color: #382C83;" id="prob2">Problema 2 (pêndulo gravítico com atrito)</h2>
+<p>Em termos realistas o pêndulo experimenta uma força adicional, para além da força gravítica, que é a força de atrito. Esta é dada pela expressão, <span class="math display">\[
+ \vec{F}_a = -c \vec{v}
+\]</span> onde <span class="math inline">\(c\)</span> é o coeficiente de atrito que depende da rugosidade da superfície, da forma do corpo oscilante e da densidade do meio fluido. Para pequenas velocidades a força é directamente proporcional à velocidade do corpo.</p>
+<p>A tabela que se segue apresenta o coeficiente de atrito medido para esferas relativamente lisas e com diferentes raios.</p>
+<table>
+<thead>
+<tr class="header">
+<th>raio (<span class="math inline">\(R \, [cm]\)</span>)</th>
+<th style="text-align: left;">coef de atrito (<span class="math inline">\(c \, [Kg/s]\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(5.75\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.2 \, 10^{-3}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(12.00\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.8 \, 10^{-3}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(18.00\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(2.6 \, 10^{-3}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(30.00\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(4.0 \; 10^{-3}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Consideremos o caso de um corpo esférico de raio <span class="math inline">\(R=15 \, cm\)</span> e massa <span class="math inline">\(m=500 \, gr\)</span>.</p>
+<p>Resolva a nova equação do movimento, que deve incluir a força gravítica e a força de atrito, considerando as condições iniciais anteriormente definidas e ainda utilizando o método de Runge-Kutta 4a ordem.<br />
+O cálculo do coeficiente de atrito deve ser feito usando um interpolador.<br />
+Deve elaborar um programa C++ na pasta <code>main/</code> cujo nome seja <code>prob2.C</code>.<br />
+O programa deve obter o movimento do pêndulo durante pelo menos 10 períodos e realizar as seguintes operações:</p>
+<ul>
+<li>Salvar num ficheiro <code>prob2_diagramafase.pdf</code> o plot do ângulo <span class="math inline">\(\theta\)</span> em função da velocidade angular <span class="math inline">\(\dot{\theta}\)</span>.</li>
+<li>Salvar num ficheiro <code>prob2_velocidade.pdf</code> o plot da velocidade linear <span class="math inline">\(v\)</span> em função do tempo.</li>
+<li>A evolução no tempo do ângulo máximo (ou velocidade máxima) é modulada por uma lei exponencial <span class="math inline">\(e^{-\gamma t}\)</span>, onde <span class="math inline">\(\gamma\)</span> é o coeficiente de amortecimento.
+<ul>
+<li>Obter o coeficiente <span class="math inline">\(\gamma\)</span> e fazer o plot do ângulo <span class="math inline">\(\theta\)</span> em função em função do tempo, sobrepondo no mesmo plot a função exponencial. Salve o plot no ficheiro <code>prob2_theta.pdf</code>.</li>
+</ul></li>
+<li>Determine a energia perdida pelo sistema no intervalo de tempo <span class="math inline">\(t=[5.5, 7.2]\,s\)</span>, utilizando a força de atrito.</li>
+</ul>
+<blockquote>
+<p>Avaliação da alínea:</p>
+<ul>
+<li>regra <code>make prob2</code> deve produzir o executável <code>prob2.exe</code> na pasta <code>bin/</code></li>
+<li>Explicações adicionais que julguem necessárias, devem ser integradas no ficheiro <code>teste01.txt</code></li>
+</ul>
+</blockquote>
+<hr />
+<p>Fim do enunciado do teste de Física Computacional</p>
+</body>
+</html>

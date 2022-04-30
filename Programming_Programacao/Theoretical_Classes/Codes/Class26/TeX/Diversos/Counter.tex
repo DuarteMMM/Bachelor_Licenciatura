@@ -1,0 +1,25 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[latin1,utf8]{inputenc}       % Tipos de caracteres
+\usepackage[portuges]{babel}             % Português
+\usepackage[a4paper,portrait]{geometry}  % Tipo de papel
+\usepackage{amsmath}                     % Extensões da American Mathematical Society
+\usepackage{multicol}                    % Para tratar colunas multiplas
+\usepackage{makeidx}                     % Para fazer índices
+\usepackage{color}                       % Para tratamento da cor
+\usepackage{fancyhdr}                    % Para cabeçalhos
+\usepackage{url}                         % Para tratar endereços 'url'
+
+\newcommand{\eProFctrStep}[0]{\stepcounter{eProFctr}\arabic{eProFctr}}
+\newcommand{\eProFctrSet}[1]{\setcounter{eProFctr}{#1}}
+
+\begin{document}
+
+\newcounter{eProFctr}
+\addtocounter{eProFctr}{0}
+
+Isto é uma coisa (\stepcounter{eProFctr}\arabic{eProFctr}) e depois temos (\stepcounter{eProFctr}\arabic{eProFctr}) que \eProFctrSet{53}
+pode ainda ser (\eProFctrStep) mais uma (\eProFctrStep).
+
+
+\end{document}

@@ -1,0 +1,23 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[latin1,utf8]{inputenc}       % Tipos de caracteres
+\usepackage[portuges]{babel}             % Português
+\usepackage[a4paper,portrait]{geometry}  % Tipo de papel
+\usepackage{amsmath}                     % Extensões da American Mathematical Society
+\usepackage{multicol}                    % Para tratar colunas multiplas
+\usepackage{makeidx}                     % Para fazer índices
+\usepackage{color}                       % Para tratamento da cor
+\usepackage{fancyhdr}                    % Para cabeçalhos
+\usepackage{url}                         % Para tratar endereços 'url'
+
+
+\begin{document}
+
+\newcounter{N1}
+\addtocounter{N1}{7}
+
+Isto é uma coisa (\stepcounter{N1}) e depois temos (\stepcounter{N1}) que
+pode ainda ser (\stepcounter{N1}) mais uma (\stepcounter{N1}).
+
+
+\end{document}

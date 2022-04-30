@@ -1,0 +1,19 @@
+#!/bin/tcsh
+##
+##  Este programa usa a variavel predefinida status e a variavel
+##  present_status definida no script para obter o estado apos a 
+##  execucao do programa retorno
+##
+set val1=$status
+
+echo ""
+echo Valor de status antes da execucao do programa retorno: $val1
+echo ""
+
+./Prog25_03 $1
+
+set val1=$status
+
+echo ""
+echo Valor de status depois da execucao do programa retorno: $val1
+echo ""

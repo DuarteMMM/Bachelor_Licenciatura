@@ -1,0 +1,31 @@
+#!/bin/tcsh
+##
+##  Este programa usa a variavel predefinida status e a variavel
+##  present_status definida no script para obter o estado apos a 
+##  execucao do programa retorno
+##
+set present_status=$status
+echo ""
+echo Valor de status antes da execucao do programa retorno: $present_status
+
+./Prog25_04_Inicio $1
+set present_status=$status
+echo ""
+echo Valor de status: $present_status
+
+if ( $present_status == 1 ) then
+
+./Prog25_04_Saida1
+
+else if ( $present_status == 2 ) then
+
+./Prog25_04_Saida2
+
+else
+
+echo ""
+echo "    **** O valor escolhido nao foi valido! ****"
+
+endif
+
+echo ""

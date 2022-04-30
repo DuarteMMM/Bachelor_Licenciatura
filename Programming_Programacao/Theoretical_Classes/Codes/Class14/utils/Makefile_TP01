@@ -1,0 +1,30 @@
+#
+# Para o executar fazer na linha de comandos 
+#   make -f Makefile_TP01
+#
+#   '-Wall'     : Faz a compilação e mostra todos os "warnings"
+#   '-lm'       : Faz o 'link' com a biblioteca matemática 'libm.so'
+#
+FLAGS	= -Wall
+LOPTS	= -lm
+
+CC	= gcc
+RM	= rm
+
+all: comp link
+
+comp: Utils.o TestProg_01.o
+
+link: TestProg_01
+
+Utils.o: Utils.c Utils.h
+	$(CC) $(FLAGS) -c Utils.c
+
+TestProg_01.o: TestProg_01.c Utils.h
+	$(CC) $(FLAGS) -c TestProg_01.c
+
+TestProg_01: TestProg_01.o Utils.o
+	$(CC) $(FLAGS) -o TestProg_01 TestProg_01.o Utils.o $(LOPTS)
+
+clean:
+	$(RM) -f TestProg_01.o Utils.o TestProg_01
