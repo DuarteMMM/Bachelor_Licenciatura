@@ -1,0 +1,28 @@
+Youtube
+https://www.youtube.com/watch?v=pnqXEnn3DNk&list=PLPglqsK3J2BlaQK-yMb4cHarKWB0D3BEu&index=1 (Vacuum pumps)
+
+https://www.youtube.com/watch?v=u4wHmW1H6KY&list=PLPglqsK3J2BlaQK-yMb4cHarKWB0D3BEu&index=2 (Introduction to Pumps)
+
+https://www.youtube.com/watch?v=LUlM0kl6Lp0&list=PLPglqsK3J2BlaQK-yMb4cHarKWB0D3BEu&index=3 (Caltech)
+
+https://www.youtube.com/watch?v=TG9vtKK-LLw&list=PLPglqsK3J2BlaQK-yMb4cHarKWB0D3BEu&index=4 (Penning Gauge)
+
+https://www.youtube.com/watch?v=IKKuWeEShM4&list=PLPglqsK3J2BlaQK-yMb4cHarKWB0D3BEu&index=5 (Ionization Gauge)
+
+https://www.youtube.com/watch?v=GUu3buwOu6U&list=PLPglqsK3J2BlaQK-yMb4cHarKWB0D3BEu&index=6&t=15s (The Clean Room and Vacuum Systems)
+
+https://www.youtube.com/watch?v=-okW2yjEruc&list=PLPglqsK3J2BlaQK-yMb4cHarKWB0D3BEu&index=7 (Cryopump)
+
+https://www.youtube.com/watch?v=T-0Nt7xzb2Y&list=PLPglqsK3J2BlaQK-yMb4cHarKWB0D3BEu&index=8 (Pirani Gauge)
+
+Sites
+https://www.normandale.edu/departments/stem-and-education/vacuum-and-thin-film-technology/vacuum-technology-resources--the-danielson-collection/articles/how-to-choose-a-roughing/backing-pump-for-the-turbo-and-drag-family (backing pumps)
+
+Eficiência
+https://www.festo.com/net/SupportPortal/Files/286804/Basic_Vacuum_Technology_Principles.pdf
+
+Controlar pó e partículas em sistemas de vácuo
+https://arxiv.org/ftp/arxiv/papers/2006/2006.02820.pdf
+
+Pressão Parcial
+https://courses.lumenlearning.com/boundless-chemistry/chapter/partial-pressure/
