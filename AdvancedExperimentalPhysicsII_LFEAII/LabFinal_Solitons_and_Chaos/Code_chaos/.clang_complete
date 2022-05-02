@@ -1,0 +1,3 @@
+-DDEBUG
+-include include/*.h
+-I../common
