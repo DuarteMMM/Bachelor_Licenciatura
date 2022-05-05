@@ -1,0 +1,17 @@
+I-V Characteristics of CD4007
+*Including the CD4007 model file
+.include cd4007.txt
+
+VDD vddnet 0 dc 5V
+RD vddnet drain 50k
+M1 drain gate 0 0 MbreakND
+VI gate 0 dc 0v
+*DC analysis to sweep VI from 0 to 5V
+.dc VI 0 5 0.01
+.end
+
+.control
+run
+plot  v(drain)
+hardcopy vo.ps v(drain)
+.endc

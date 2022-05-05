@@ -1,0 +1,17 @@
+.options savecurrents
+.include bc547.model
+
+vBE base 0 dc 0.65v
+
+vCE col 0 dc 5
+
+Q1 col base 0 BC547
+
+.dc vCE  0 5 .01
+.end
+
+.control
+run
+dc
+plot -vCE#branch vs v(col)
+.endc
